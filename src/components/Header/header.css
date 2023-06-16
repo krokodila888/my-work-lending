@@ -1,0 +1,80 @@
+@import url(../../vendor/Railroad/stylesheet.css);
+
+.header {
+  display: flex;
+  flex-direction: row;
+  background: rgb(148 148 143);
+  color: white;
+  align-items: center;
+  height: 110px;
+  justify-content: center;
+}
+
+.header__content {
+  width: 1040px;
+  display: flex;
+  flex-direction: row;
+  margin: 20px auto;
+  align-items: center;
+}
+
+.header__title {
+  font-weight: 400;
+  font-size: 28px;
+  margin: 0;
+}
+
+.header__icon {
+  width: 60px;
+  height: 60px;
+  margin-left: 30px;
+}
+
+@media screen and (max-width: 1180px) {
+  .header__content {
+    width: calc(100vw - 70px);
+    margin-left: 70px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .header__content {
+    width: calc(100vw - 102px);
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .header__title {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .header__content {
+    width: calc(100vw - 52px);
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .header__title {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .header__title {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .header__icon {
+    margin-left: 15px;
+  }
+}

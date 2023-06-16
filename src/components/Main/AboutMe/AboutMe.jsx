@@ -110,7 +110,6 @@ function AboutMe() {
   return (
     <>
     <section className="aboutMe__content" id="AboutMe">
-      <h2 className="aboutMe__title">(Не)рабочее пространство Женечки</h2>
       <div className='aboutMe__text-block'>
         <div className='aboutMe__column'>
           <div className='aboutMe__column1'>
@@ -141,45 +140,20 @@ function AboutMe() {
             <p className="aboutMe__text">
               А еще Женечка адекватная, быстро учится и чертовски много работает.
             </p>
-            <p className="aboutMe__text">
-              Немного конкретики, наконец. Женечка прошла курс по обучению на веб-разработчика от Яндекс.Практикума (январь 2023) и курс по react-разработке там же (май 2023). 
-            </p>
-            <p className="aboutMe__text">
-              1. Сейчас Женечка ковыряет учебники Трепачева, читает про UX/UI и грызет чертовы алгоритмы, а еще перечитывает всю теорию на свете, чтобы смотреться на собеседовании более убедительно. Пока Женечка перечитала не все и стремается по этому поводу, есть шанс нанять ее занедорого.
-            </p>
-            <p className="aboutMe__text">
-              2. Параллельно Женечка пишет несколько пет-проектов, на которых учится взаимодействию с командой: ПМ может не отличать фронта от дизайнера после двух месяцев работы, заказчик сайта-визитки может хотеть формат интернет-магазина без наполнения для интернет-магазина, редкий проект доползает до MVP. Полное погружение, словом.
-            </p>
-            <p className="aboutMe__text">
-              3. Женечка понимает, что ей еще пахать и пахать. Пока в целом готова работать за еду и код-ревью (читай, бесценный опыт), но это временно, потому что цели - гиперэкспертность, понимание происходящего, высокая скорость работы, приятная зарплата.
-            </p>
-            <p className="aboutMe__text">
-              4. Всю сознательную жизнь Женечка работала за двоих/троих/четверых и не видит, почему айтишечка может стать исключением. Когда Женечка уходила в декрет, на ее функционал взяли четверых, здорово снизив требования к результату. На последнем месте Женечке менее чем за год выдали функционал двух ведущих инженеров со стажем 5-10 лет. 
-            </p>
-            <p className="aboutMe__text">
-              5. У Женечки два бессмысленных высших образования, одно - с красным дипломом.
-            </p>
-            <p className="aboutMe__text">
-              6. Женечка переучивалась без пауз и академов с ребенком на голове и насыщенной работой фуллтайм (и никого не убила, не развелась, ребенок не начал заикаться). Женечка способна осваивать новый фреймворк под звуки мультиков, с осьминогом на голове, одной рукой изображая паучка и отвечая на бытовые вопросы раз в три минусы. Может показаться, что Женечка или преувеличивает, или сверхчеловек (это недалеко от истины). 
-            </p>
-            <p className="aboutMe__text">
-              7. Про софт-скиллы и говорить нечего: школьные друзья Женечки все еще с ней, университетские - тоже, первый же парень Женечки женился на ней и никуда не девается уже лет пятнадцать. Приятели с двух последних мест работы все еще предлагают ей новую работу.
-            </p>
-            <p className="aboutMe__text">
-              8. Еще Женечка - кондитер четвертого разряда с развесистым портфолио. За отдельную доплату она НЕ БУДЕТ печь в офис.
-            </p>
-            <p className="aboutMe__text">
-              9. Недостатки: начальники систематически не слышат ее стоп-слово.
-            </p>
           </>}
-          <button className='aboutMe__button' onClick={showBattle}>{battleButtonText()}</button>
-          <button className='aboutMe__button' onClick={showStudy}>{studyButtonText()}</button>
-          <button className='aboutMe__button' onClick={showMereng}>{merengButtonText()}</button>
-        </div>
+        </div>        
         <div className='aboutMe__column'>
-        <img src={photo} alt="Фото Женечки, ужасно симпатичное" className="aboutMe__photo" />
+          <img src={photo} alt="Фото Женечки, ужасно симпатичное" className="aboutMe__photo" />
+        </div>      
         </div>
-      </div>
+        </section>
+        <section className="aboutMe__button-content" id="Buttons">
+        <button className='aboutMe__button' onClick={showBattle}>{battleButtonText()}</button>
+        <button className='aboutMe__button' onClick={showStudy}>{studyButtonText()}</button>
+        <button className='aboutMe__button' onClick={showMereng}>{merengButtonText()}</button>
+        
+
+
       {battleIsVisible && <>
       <h3 className='aboutMe__story-text'>{text}</h3>
       {!endGame && <>
@@ -199,7 +173,7 @@ function AboutMe() {
     </section>
     {studyIsVisible && <CardsHolder/>}
     {merengIsVisible &&
-      <section className="aboutMe__content">
+      <section className="aboutMe__button-content">
         <Preloader isLoading={merengIsVisible}/>
       </section>
     }

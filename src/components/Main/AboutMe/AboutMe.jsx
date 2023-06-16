@@ -148,31 +148,38 @@ function AboutMe() {
         </div>
         </section>
         <section className="aboutMe__button-content" id="Buttons">
-        <button className='aboutMe__button' onClick={showBattle}>{battleButtonText()}</button>
-        <button className='aboutMe__button' onClick={showStudy}>{studyButtonText()}</button>
-        <button className='aboutMe__button' onClick={showMereng}>{merengButtonText()}</button>
-        
-
-
-      {battleIsVisible && <>
-      <h3 className='aboutMe__story-text'>{text}</h3>
-      {!endGame && <>
-        <button ref={attack1Button} className='aboutMe__button' onClick={() => {makeAttack(attack1)}}>{attack1.name}</button>
-        <button ref={attack2Button} className='aboutMe__button' onClick={() => {makeAttack(attack2)}}>{attack2.name}</button>
-        <button ref={attack3Button} className='aboutMe__button' onClick={() => {makeAttack(attack3)}}>{attack3.name}</button>
-        {!superAttackCounter &&
-        <button ref={superAttack1Button} className='aboutMe__button aboutMe__button1' onClick={() => {makeAttack(superAttack1)}}>{superAttack1.name}</button>}
-      </>}
-      {showEnd && 
-      <div className='container'>
-        <button className='btn' onClick={startAgain}>Сразиться еще раз!</button>
-        {isWinning && <img src={win} alt="Знак победы" className='aboutMe__res-img'/>}
-        {!isWinning && <img src={rip} alt="Знак поражения" className='aboutMe__res-img'/>}
-      </div>}
+        {!merengIsVisible && !studyIsVisible &&
+        <button className='aboutMe__button' onClick={showBattle}>
+          {battleButtonText()}
+        </button>}
+        {!battleIsVisible && !merengIsVisible &&
+        <button className='aboutMe__button' onClick={showStudy}>
+          {studyButtonText()}
+        </button>}
+        {!studyIsVisible && !battleIsVisible &&
+        <button className='aboutMe__button' onClick={showMereng}>
+          {merengButtonText()}
+        </button>}
+      {battleIsVisible && !merengIsVisible && !studyIsVisible &&
+      <>
+        <h3 className='aboutMe__story-text'>{text}</h3>
+        {!endGame && <>
+          <button ref={attack1Button} className='aboutMe__button' onClick={() => {makeAttack(attack1)}}>{attack1.name}</button>
+          <button ref={attack2Button} className='aboutMe__button' onClick={() => {makeAttack(attack2)}}>{attack2.name}</button>
+          <button ref={attack3Button} className='aboutMe__button' onClick={() => {makeAttack(attack3)}}>{attack3.name}</button>
+          {!superAttackCounter &&
+          <button ref={superAttack1Button} className='aboutMe__button aboutMe__button1' onClick={() => {makeAttack(superAttack1)}}>{superAttack1.name}</button>}
+        </>}
+        {showEnd && 
+        <div className='container'>
+          <button className='btn' onClick={startAgain}>Сразиться еще раз!</button>
+          {isWinning && <img src={win} alt="Знак победы" className='aboutMe__res-img'/>}
+          {!isWinning && <img src={rip} alt="Знак поражения" className='aboutMe__res-img'/>}
+        </div>}
       </>}
     </section>
-    {studyIsVisible && <CardsHolder/>}
-    {merengIsVisible &&
+    {studyIsVisible && !battleIsVisible && !merengIsVisible && <CardsHolder/>}
+    {merengIsVisible && !studyIsVisible && !battleIsVisible &&
       <section className="aboutMe__button-content">
         <Preloader isLoading={merengIsVisible}/>
       </section>

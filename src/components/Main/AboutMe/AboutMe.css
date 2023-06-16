@@ -10,7 +10,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 0px 70px 100px 70px;
+  padding: 0px 70px 20px 70px;
   max-width: 1040px;
   min-height: 400px;
   margin-right: auto;
@@ -22,10 +22,11 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 0px 70px 100px 70px;
+  padding: 70px 70px 70px 70px;
   max-width: 1040px;
   margin-right: auto;
   margin-left: auto;
+  background-color: rgb(210 210 210);
 }
 
 .aboutMe__title {
@@ -59,16 +60,16 @@
   font-family: 'Inter', sans-serif;
   font-weight: 600;
   font-size: 18px;
-  line-height: 22px;
-  margin: 30px auto 0 auto;
+  line-height: 28px;
+  margin: 40px auto 40px auto;
   min-height: 50px;
   width: 710px;
-  border: 1px solid black;
   border-radius: 0 10px 0 10px;
   display: flex;
   justify-items: center;
   align-items: center;
   padding: 12px;
+  background: white;
 }
 
 .aboutMe__text {
@@ -167,7 +168,7 @@
   left: 0;
   width: 0;
   height: 100%;
-  background: #30c55a;
+  background: #38c6c1;
   transition: all .35s;
   opacity: 0.4;
   border-radius: 20px;
@@ -247,13 +248,13 @@
 
 @media screen and (max-width: 770px) {
   .aboutMe__content {
-    padding: 0px 50px 90px 50px;
+    padding: 90px 50px 20px 50px;
   }
 }
 
 @media screen and (max-width: 770px) {
   .aboutMe__button-content {
-    padding: 0px 50px 90px 50px;
+    padding: 90px 50px 90px 50px;
   }
 }
 
@@ -351,13 +352,13 @@
 
 @media screen and (max-width: 450px) {
   .aboutMe__content {
-    padding: 0px 20px 70px 20px;
+    padding: 0px 20px 20px 20px;
   }
 }
 
 @media screen and (max-width: 450px) {
   .aboutMe__button-content {
-    padding: 0px 20px 70px 20px;
+    padding: 70px 20px 70px 20px;
   }
 }
 

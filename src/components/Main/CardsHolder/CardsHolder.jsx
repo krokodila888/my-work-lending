@@ -83,7 +83,6 @@ function CardsHolder() {
   };
 
   function handleSubmit() {
-    console.log(form);
     dispatch(addCard(form));
     setAddNewCard(false);
     setValue({ text: '', translation: '' })
@@ -91,7 +90,6 @@ function CardsHolder() {
 
   const handleEditSubmit = e => {
     e.preventDefault();
-    console.log(editingForm);
     dispatch(editCard(editingForm));
     setEditItem(false);
     setEditedMeaning({ text: '', translation: '', ID: 0 });
@@ -122,7 +120,19 @@ function CardsHolder() {
   }
 
   function word() {
-    return (<><p className="cardsHolder__title">{currentWord.translation}</p>{showWord && <><p className="cardsHolder__title">{currentWord.text}</p><p>Рекомендуем напечатать правильный вариант все равно: так он лучше запомнится</p></>}</>)
+    return (
+    <>
+      <p className="cardsHolder__title">
+        {currentWord.translation}
+      </p>
+      {showWord && 
+      <>
+        <p className="cardsHolder__title">
+          {currentWord.text}
+        </p>
+        <p>Рекомендуем напечатать правильный вариант все равно: так он лучше запомнится</p>
+      </>}
+    </>)
   }
 
   useEffect(()=> {
@@ -136,8 +146,6 @@ function CardsHolder() {
 
   function nextWord1() {
     setRepeatedWords([...repeatedWords, currentWord]);
-    console.log(repeatedWords);
-    console.log([repeatedWords, currentWord]);
     setShowWord(false);
     setIsCorrect(false);
     setMeaning({ ...repeatingForm, word: '' });
@@ -156,14 +164,14 @@ function CardsHolder() {
         {!repeatMode && <button className='btn' onClick={showAddForm}>
           Добавить карточку
         </button>}
-        {cards !== [] && !repeatMode && 
+        {cards.length !== 0 && cards !== [] && !repeatMode && 
           <button className='btn' onClick={startRepeating}>
             Повторить слова
           </button>}
-          {cards !== [] && !repeatMode && 
-            <button className='btn' onClick={showAllCards}>
-              Посмотреть на карточки
-            </button>}
+        {cards !== [] && cards.length !== 0 && !repeatMode && 
+          <button className='btn' onClick={showAllCards}>
+            Посмотреть на карточки
+          </button>}
       </div>}
       {addNewCard && 
       <form className='cardsHolder__form' onSubmit={handleSubmit}>
@@ -232,51 +240,49 @@ function CardsHolder() {
       </div>}
       <div>
       {showCards && cards !== [] && cards.map((item, i) => (
-        <>
-          <div key={i} className="cardsHolder__card">
-            <p>
-              {item.text}
-            </p>
-            <p>
-              {item.translation}
-            </p>
-            <img src={pencil} className="cardsHolder__pensil" alt='Иконка карандаша (тут можно редактировать текст)' onClick={() => {openEditCard(item)}}/>
-            <img src={gurb} className="cardsHolder__pensil" alt='Иконка урны (тут можно удалить карточку)' onClick={() => {deleteCard(item)}}/>
-          </div>
-        </>))
+        <div key={i} className="cardsHolder__card">
+          <p>
+            {item.text}
+          </p>
+          <p>
+            {item.translation}
+          </p>
+          <img src={pencil} className="cardsHolder__pensil" alt='Иконка карандаша (тут можно редактировать текст)' onClick={() => {openEditCard(item)}}/>
+          <img src={gurb} className="cardsHolder__pensil" alt='Иконка урны (тут можно удалить карточку)' onClick={() => {deleteCard(item)}}/>
+        </div>))
       }
       </div>
       {showCards && cards !== [] && editItem && 
-          <form className='cardsHolder__form' onSubmit={handleEditSubmit}>
-            <input 
-              placeholder='Слово на иностранном языке' 
-              value={editingForm.text} 
-              name="text" 
-              onChange={onEditChange}
-              required
-              type="text"
-              className='cardsHolder__input'/>
-            <input 
-              placeholder='Более точный перевод' 
-              value={editingForm.translation} 
-              name="translation" 
-              onChange={onEditChange}
-              required
-              type="text"
-              className='cardsHolder__input' />
-            <div className='cardsHolder__button-block'>
-              <button 
-                className='btn'
-                type="submit">
-                  Вот так лучше
-              </button>
-              <button 
-                className='cardsHolder__button'
-                onClick={closeEditCard}>
-                  Оставим как было
-              </button>
-            </div>
-          </form>}
+        <form className='cardsHolder__form' onSubmit={handleEditSubmit}>
+          <input 
+            placeholder='Слово на иностранном языке' 
+            value={editingForm.text} 
+            name="text" 
+            onChange={onEditChange}
+            required
+            type="text"
+            className='cardsHolder__input'/>
+          <input 
+            placeholder='Более точный перевод' 
+            value={editingForm.translation} 
+            name="translation" 
+            onChange={onEditChange}
+            required
+            type="text"
+            className='cardsHolder__input' />
+          <div className='cardsHolder__button-block'>
+            <button 
+              className='btn'
+              type="submit">
+                Вот так лучше
+            </button>
+            <button 
+              className='cardsHolder__button'
+              onClick={closeEditCard}>
+                Оставим как было
+            </button>
+          </div>
+        </form>}
       {showCards && cards !== [] && 
         <button 
           className='cardsHolder__button cardsHolder__button1'
@@ -290,4 +296,3 @@ function CardsHolder() {
 }  
 
 export default CardsHolder; 
-

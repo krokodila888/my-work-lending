@@ -145,6 +145,7 @@
   font-family: sans-serif;
   text-decoration: none;
   color: #333;
+  background-color: white;
   border: none;
   letter-spacing: 2px;
   text-align: center;
@@ -159,6 +160,11 @@
   transform: scale(1.3);
 }
 
+@media screen and (max-width: 650px) {
+  .aboutMe__button1:hover {
+    transform: none;
+  }
+}
 
 .aboutMe__button:after{
   position: absolute;

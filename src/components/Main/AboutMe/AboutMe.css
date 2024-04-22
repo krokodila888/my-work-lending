@@ -128,17 +128,13 @@
   border-radius: 10px;
 }
 
-.aboutMe__column1 {
-  padding-bottom: 30px;
-}
-
 .aboutMe__link {
   text-decoration: none;
-  color: rgb(121, 118, 118);
+  color: rgb(150, 149, 149);
   font-family: 'Inter', sans-serif;
   font-weight: 500;
-  font-size: 17px;
-  line-height: 19px;
+  font-size: 18px;
+  line-height: 24px;
   padding-top: 30px;
   margin-bottom: 30px;
 }
@@ -389,7 +385,7 @@
 
 @media screen and (max-width: 450px) {
   .aboutMe__content {
-    padding: 0px 20px 20px 20px;
+    padding: 0px 20px 0 20px;
   }
 }
 
@@ -453,6 +449,12 @@
   }
 }
 
+@media screen and (max-width: 500px) {
+  .slider{
+    gap: 12px;
+  }
+}
+
 .slider__container {
   align-self: center;
   justify-items: center;
@@ -493,6 +495,14 @@
   width: 40px;
   height: 40px;
   margin: 10px;
+  z-index: 2;
+}
+
+@media screen and (max-width: 500px) {
+  .slider__btn {
+    position: relative;
+    top: 140px;
+  }
 }
 
 .slider__btn:hover {
@@ -520,7 +530,7 @@
 
 @media screen and (max-width: 500px) {
   .slider__img {
-    width: 120%;
+    width: 130%;
   }
 }
 

@@ -148,6 +148,27 @@ function AboutMe() {
             <a className="aboutMe__link" href="https://github.com/krokodila888" target="_blank">
               Мой GitHub
             </a>
+
+          <div className='aboutMe__column'>
+          
+          <p className="aboutMe__text">
+            Тут будет убедительный текст про то, почему нанять Женечку - отличная идея (а заодно демонстрация для друзей: лендинг это несложно! Давайте быстрее, а то я найду работу и акция "лендинг за пиццу" закончится навсегда).
+          </p>
+          <p 
+            className="aboutMe__text aboutMe__text1" 
+            onClick={showHiddenText}>
+            Так почему же?
+          </p>
+          {showText && 
+          <>
+            <p className="aboutMe__text">
+              Женечка классная. Нет, ну правда.
+            </p>
+            <p className="aboutMe__text">
+              А еще Женечка адекватная, быстро учится и чертовски много работает. <br/>И вот еще...
+            </p>
+          </>}
+        </div> 
           </div>
         </div>        
         <div className='aboutMe__column'>
@@ -187,33 +208,18 @@ function AboutMe() {
           <div className='aboutMe__column'>
           
           <p className="aboutMe__text">
-            Тут будет убедительный текст про то, почему нанять Женечку - отличная идея (а заодно демонстрация для друзей: лендинг это несложно! Давайте быстрее, а то я найду работу и акция "лендинг за пиццу" закончится навсегда).
+            Не смотрите на код этого лендинга, он древний (но симпатичный)! В репозитории <a className="aboutMe__link" href="https://github.com/krokodila888" target="_blank">
+              на Гитхабе
+            </a> уже есть лучше. 
           </p>
           <p className="aboutMe__text">
-            Не смотрите на код этого лендинга, он древний (но симпатичный)! У меня в репозитории уже есть лучше. 
+            Тут живут демонстрационные кусочки для пет-проектов: механика боя для квеста с рандомайзерами, задел под фронт для изучения языка по карточкам и прелоадер-безешка. Оба уже реализованы лучше, чем тут, но эти штуки милые.
           </p>
-          <p className="aboutMe__text">
-            Оставлю тут демонстрационные кусочки для пет-проектов: механика боя для квеста с рандомайзерами, задел под фронт для изучения языка по карточкам и прелоадер-безешка. Оба уже реализованы лучше, чем тут, но эти штуки милые.
-          </p>
-          <p 
-            className="aboutMe__text aboutMe__text1" 
-            onClick={showHiddenText}>
-            Так почему же?
-          </p>
-          {showText && 
-          <>
-            <p className="aboutMe__text">
-              Женечка классная. Нет, ну правда.
-            </p>
-            <p className="aboutMe__text">
-              А еще Женечка адекватная, быстро учится и чертовски много работает.
-            </p>
-          </>}
           </div>
           <img 
               src={mem} 
               alt="Айтишный мем" 
-              className="slider__img1" 
+              className="slider__img" 
             />
         </div>  
         <section className="aboutMe__button-content" id="Buttons">

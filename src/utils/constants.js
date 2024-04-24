@@ -4,14 +4,15 @@ import mem3 from '../images/mem3.jpg';
 import mem4 from '../images/mem4.jpg';
 import mem5 from '../images/mem5.jpg';
 import mem6 from '../images/mem6.jpg';
-import mem7 from '../images/mem1.jpg';
+import mem7 from '../images/mem7.jpg';
 import mem8 from '../images/mem8.jpg';
-import mem9 from '../images/mem1.jpg';
-import mem10 from '../images/mem1.jpg';
+import mem9 from '../images/mem9.jpg';
+import mem10 from '../images/mem10.jpg';
 import mem11 from '../images/mem11.jpg';
 import mem13 from '../images/mem13.jpg';
 import mem12 from '../images/mem12.jpg';
 import mem14 from '../images/mem14.jpg';
+import mem15 from '../images/mem15.jpg';
 import mem16 from '../images/mem16.jpg';
 import mem17 from '../images/mem17.png'
 import mem21 from '../images/mem21.jpg'
@@ -124,4 +125,8 @@ export const points = [
     pic: mem11,
     title: '11. Умение держать интригу'
   }, 
+];
+
+export const pics = [
+  mem6, mem7, mem8, mem9, mem10, mem14
 ]

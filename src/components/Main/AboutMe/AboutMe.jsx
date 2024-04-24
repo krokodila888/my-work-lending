@@ -1,8 +1,72 @@
 import photo from '../../../images/photo1.jpg';
+import React, { useState } from "react";
+import './AboutMe.css';
+
+function AboutMe() {
+
+  const [showText, setShowText] = useState(false);
+
+
+  function showHiddenText() {
+    setShowText(true)
+  };
+
+  return (
+    <section className="aboutMe__content" id="AboutMe">
+      <div className='aboutMe__text-block'>
+        <div className='aboutMe__column'>
+          <div className='aboutMe__column1'>
+            <p className="aboutMe__name-text">
+              Евгения
+            </p>
+            <p className="aboutMe__status-text">
+            <span className='span_color2'>Фронтенд-разработчик</span>, 34&nbsp;года
+            </p>
+            <p className="aboutMe__text">
+              Родилась и живу в Москве, отучилась на юриста и менеджера информационной безопасности. Замужем, есть дочь. Консультировала людей по настольным играм, работала следователем (ошибки юности), <span className='span_color2'> кондитер 4 разряда</span>; последние годы - корректор-документовед на хорошей зарплате. Переучиваюсь на веб-разработчика, чтобы привязать зарплату к универсальному языку и перекрасить волосы в <span className='span_color3'>синий</span> навсегда.
+            </p>
+            <a className="aboutMe__link" href="https://github.com/krokodila888" target="_blank">
+              Мой GitHub
+            </a>
+            <div className='aboutMe__column'>
+              <p className="aboutMe__text">
+                Тут будет убедительный текст про то, почему нанять Женечку - отличная идея (а заодно демонстрация для друзей: лендинг это несложно! Давайте быстрее, а то я найду работу и акция "лендинг за пиццу" закончится навсегда).
+              </p>
+              <p 
+                className="aboutMe__text aboutMe__text1" 
+                onClick={showHiddenText}>
+                Так почему же?
+              </p>
+              {showText && 
+              <>
+                <p className="aboutMe__text">
+                  Женечка классная. Нет, ну правда.
+                </p>
+                <p className="aboutMe__text">
+                  А еще Женечка адекватная, быстро учится и чертовски много работает. <br/>И вот еще...
+                </p>
+              </>}
+            </div> 
+          </div>
+        </div>        
+        <div className='aboutMe__column'>
+          <img 
+            src={photo} 
+            alt="Фото Женечки, ужасно симпатичное" 
+            className="aboutMe__photo" 
+          />
+        </div>      
+      </div>
+    </section>
+  );
+}  
+
+export default AboutMe; 
+
+/*
+import photo from '../../../images/photo1.jpg';
 import rip from '../../../images/rip3.png';
 import win from '../../../images/win4.png';
-import left from '../../../images/left.png';
-import right from '../../../images/right.png';
 import mem from '../../../images/mem1.jpg';
 import {attack1, attack2, attack3, superAttack1} from '../../../utils/constants.js';
 import React, { useEffect, useState } from "react";
@@ -10,7 +74,6 @@ import './AboutMe.css';
 import Preloader from '../Preloader/Preloader.js';
 import Promo from '../Promo/Promo.jsx';
 import CardsHolder from '../CardsHolder/CardsHolder.jsx';
-import { points } from '../../../utils/constants.js';
 
 function AboutMe() {
 
@@ -22,7 +85,6 @@ function AboutMe() {
   const [endGame, setEndGame] = useState(false);
   const [showEnd, setShowEnd] = useState(false);
   const [showText, setShowText] = useState(false);
-  const [count, setCount] = useState(0);
   const [battleIsVisible, setBattleIsVisible] = useState(false);
   const [studyIsVisible, setStudyIsVisible] = useState(false);
   const [merengIsVisible, setMerengIsVisible] = useState(false);
@@ -46,31 +108,9 @@ function AboutMe() {
     superAttack1Button.current.classList.delete('aboutMe__button-blocked');
   }
 
-  function handleLeftClick() {
-    if (count !== 0) {
-      setCount(count - 1)
-    };
-    if (count === 0) {
-      setCount(10)
-    };
-  }
-
-  function handleRightClick() {
-    if (count !== 10) {
-      setCount(count + 1)
-    };
-    if (count === 10) {
-      setCount(0)
-    };
-  }
-
   useEffect(()=> {
     setIsWinning(getFightRes());
   }, [])
-
-  useEffect(()=> {
-    console.log(isWinning);
-  }, [isWinning])
 
   useEffect(()=> {
     setAttackMaxNum(Math.floor(Math.random() * 2 + 2));
@@ -178,48 +218,28 @@ function AboutMe() {
             className="aboutMe__photo" 
           />
         </div>      
-        </div>
-        </section>
-        <section className='slider'>
-          <img 
-            src={left} 
-            alt="Стрелка влево в виде клавиши клавиатуры" 
-            className="slider__btn" 
-            onClick={handleLeftClick}
-          />
-          <div className='slider__container'>
-            <img 
-              src={points[count].pic} 
-              alt="Айтишный мем" 
-              className="slider__img" 
-            />
-            <p className='slider__text'>
-              {points[count].text}
-            </p>
-          </div>
-            <img 
-            src={right} 
-            alt="Стрелка право в виде клавиши клавиатуры" 
-            className="slider__btn" 
-            onClick={handleRightClick}
-          />
-        </section>
+      </div>
+    </section>
+    <Promo />
         <div className='aboutMe__content1'>
-          <div className='aboutMe__column'>
+          <div className='aboutMe__column2'>
           
           <p className="aboutMe__text">
-            Не смотрите на код этого лендинга, он древний (но симпатичный)! В репозитории <a className="aboutMe__link" href="https://github.com/krokodila888" target="_blank">
+            Не смотрите на код этого лендинга, он древний (но симпатичный)! <br/> В репозитории <a className="aboutMe__link" href="https://github.com/krokodila888" target="_blank">
               на Гитхабе
             </a> уже есть лучше. 
           </p>
           <p className="aboutMe__text">
             Тут живут демонстрационные кусочки для пет-проектов: механика боя для квеста с рандомайзерами, задел под фронт для изучения языка по карточкам и прелоадер-безешка. Оба уже реализованы лучше, чем тут, но эти штуки милые.
           </p>
+          <p className="aboutMe__text">
+            И помните, что взять Женечку на работу - недурная идея 🐱
+          </p>
           </div>
           <img 
               src={mem} 
               alt="Айтишный мем" 
-              className="slider__img" 
+              className="slider__img2" 
             />
         </div>  
         <section className="aboutMe__button-content" id="Buttons">
@@ -264,3 +284,4 @@ function AboutMe() {
 }  
 
 export default AboutMe; 
+*/

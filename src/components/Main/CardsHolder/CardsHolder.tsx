@@ -196,8 +196,7 @@ const CardsHolder: FC = () => {
   }
 
   return (
-    <>
-      <section 
+    <section 
         className={styles.cardsHolder__content} 
         id="cardsHolder">
         <h2 className={styles.cardsHolder__title}>
@@ -372,7 +371,6 @@ const CardsHolder: FC = () => {
           </button>
         )}
       </section>
-    </>
   );
 };
 

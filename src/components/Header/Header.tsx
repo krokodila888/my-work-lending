@@ -1,8 +1,8 @@
 import icon from '../../images/icon.png';
-import React, { useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import './header.css';
 
-function Header() {
+const Header: FC = () => {  
 
   return (
     <header className='header'>

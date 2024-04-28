@@ -1,10 +1,20 @@
+import React, { FC, useEffect, useState } from "react";
 import rip from '../../../images/rip3.png';
 import win from '../../../images/win4.png';
-import {attack1, attack2, attack3, superAttack1} from '../../../utils/constants.js';
-import React, { useEffect, useState } from "react";
+import {attack1, attack2, attack3, superAttack1} from '../../../utils/constants';
 import './BattleBlock.css';
+import { TAttack } from "../../../utils/types";
 
-function BattleBlock(props) {
+type TBattleBlockProps = {
+  showBattle: () => void;
+  showStudy: () => void;
+  showMereng: () => void;
+  battleIsVisible: boolean;
+  studyIsVisible: boolean;
+  merengIsVisible: boolean;
+};
+
+const BattleBlock: FC<TBattleBlockProps> = (props) => {
 
   const { showBattle, showStudy, showMereng, battleIsVisible,studyIsVisible, merengIsVisible } = props;
 
@@ -18,7 +28,7 @@ function BattleBlock(props) {
   const attack1Button = React.useRef(null);
   const attack2Button = React.useRef(null);
   const attack3Button = React.useRef(null);
-  const superAttack1Button = React.useRef(null);
+  const superAttack1Button = React.useRef<HTMLButtonElement>(null);
 
   function getFightRes() {
     return (Math.floor(Math.random() * 2 + 1) === 1);
@@ -32,7 +42,9 @@ function BattleBlock(props) {
     setEndGame(false);
     setAttackCounter(0);
     setSuperAttackCounter(false);
-    superAttack1Button.current.classList.delete('aboutMe__button-blocked');
+    if (superAttack1Button.current) {
+    superAttack1Button.current.classList.remove('aboutMe__button-blocked');
+    }
   }
 
   useEffect(()=> {
@@ -43,7 +55,7 @@ function BattleBlock(props) {
     setAttackMaxNum(Math.floor(Math.random() * 2 + 2));
   }, [])
   
-  function makeAttack(item) {
+  function makeAttack(item: TAttack) {
     if (attackCounter < attackMaxNum) {
       setAttackCounter(attackCounter + 1);
       deleteAttackButton(item);
@@ -61,7 +73,7 @@ function BattleBlock(props) {
     
   };
 
-  function deleteAttackButton(item) {
+  function deleteAttackButton(item: TAttack) {
     if (item === superAttack1)
     setSuperAttackCounter(true)
   };

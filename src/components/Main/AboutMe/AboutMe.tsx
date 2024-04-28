@@ -1,8 +1,8 @@
 import photo from '../../../images/photo1.jpg';
-import React, { useState } from "react";
+import { FC, useState } from "react";
 import './AboutMe.css';
 
-function AboutMe() {
+const AboutMe: FC = () => {
 
   const [showText, setShowText] = useState(false);
 
@@ -20,10 +20,10 @@ function AboutMe() {
               Евгения
             </p>
             <p className="aboutMe__status-text">
-            <span className='span_color2'>Фронтенд-разработчик</span>, 34&nbsp;года
+            <span className='span_color2'>Фронтенд-разработчик</span>, 35&nbsp;лет
             </p>
             <p className="aboutMe__text">
-              Родилась и живу в Москве, отучилась на юриста и менеджера информационной безопасности. Замужем, есть дочь. Консультировала людей по настольным играм, работала следователем (ошибки юности), <span className='span_color2'> кондитер 4 разряда</span>; последние годы - корректор-документовед на хорошей зарплате. Переучиваюсь на веб-разработчика, чтобы привязать зарплату к универсальному языку и перекрасить волосы в <span className='span_color3'>синий</span> навсегда.
+              Родилась и живу в Москве, отучилась на юриста и менеджера информационной безопасности. Замужем, есть дочь. Консультировала людей по настольным играм, работала следователем (ошибки юности), <span className='span_color2'> кондитер 4 разряда</span>; последние годы - корректор-документовед на хорошей зарплате. Переучиваюсь на веб-разработчика, чтобы привязать зарплату к универсальному языку и перекрасить волосы в <span className='span_color3'>синий навсегда.</span>
             </p>
             <a className="aboutMe__link" href="https://github.com/krokodila888" target="_blank">
               Мой GitHub

@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { pics } from '../../utils/constants.js';
+import { pics } from '../../utils/constants';
 import left from '../../images/arrow-l.png';
 import right from '../../images/arrow-r.png';
 import './PageNotFound.css';
 
-function PageNotFound () {
+const PageNotFound: FC = () => { 
 
   const navigate = useNavigate();
   const [count, setCount] = useState(0);

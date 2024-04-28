@@ -1,7 +1,4 @@
-import mem1 from '../images/mem1.jpg';
 import mem2 from '../images/mem2.jpg';
-import mem3 from '../images/mem3.jpg';
-import mem4 from '../images/mem4.jpg';
 import mem5 from '../images/mem5.jpg';
 import mem6 from '../images/mem6.jpg';
 import mem7 from '../images/mem7.jpg';
@@ -10,9 +7,7 @@ import mem9 from '../images/mem9.jpg';
 import mem10 from '../images/mem10.jpg';
 import mem11 from '../images/mem11.jpg';
 import mem13 from '../images/mem13.jpg';
-import mem12 from '../images/mem12.jpg';
 import mem14 from '../images/mem14.jpg';
-import mem15 from '../images/mem15.jpg';
 import mem16 from '../images/mem16.jpg';
 import mem17 from '../images/mem17.png'
 import mem21 from '../images/mem21.jpg'
@@ -20,29 +15,30 @@ import mem23 from '../images/mem23.jpg'
 import mem18 from '../images/mem18.jpg'
 import softs from '../images/softs.jpg';
 import zoom from '../images/zoom-mem.jpg';
+import { TAttack, TPoint } from './types';
 
-export const attack1 = {
+export const attack1: TAttack = {
   name: 'Поставить подножку',
   lucky: 'С обиженным воплем противник падает. Время действовать!',
   unlucky: 'Вместо  того, чтобы упасть, враг пребольно пинает вас в колено и переходит в атаку. Похоже, у вас проблемы.',
   win: 'В падении враг напарывается на собственное оружие. Какая нелепая смерть.',
   loose: 'Враг игнорирует вашу попытку и бьет вас в ухо. Последнее, что вы видите - его злобный оскал.'
 };
-export const attack2 = {
+export const attack2: TAttack = {
   name: 'Пнуть в голень',
   lucky: 'Противник отскакивает на одной ноге, поливая вас бранью. Вперед!',
   unlucky: 'Вы больно ушибли ногу о его броню. Враг атакует, ухмыляясь.',
   win: 'Противник воет от боли и молит о пощаде. Неожиданно, но почему бы и нет.',
   loose: 'Противник легко уворачивается и бьет вас в челюсть. Перед глазами все меркнет.'
 };
-export const attack3 = {
+export const attack3: TAttack = {
   name: 'Изысканно оскорбить, надавив на детские травмы',
   lucky: 'Противник обескуражен и ретравматизирован. Пока он приходит в себя, надо развить успех!',
   unlucky: 'Перебор с изысканностью: похоже, он не понял половины слов, но теперь пытается проломить вам череп. Берегитесь!..',
   win: 'Противник упал на колени и рыдает, бросив оружие. Жалкое зрелище.',
   loose: 'Противник внимательно слушает, а потом в два предложения убеждает вас, что все сказанное - проекция вашей собственной уязвимости. Вы больше не можете сражаться - это бессмысленно, как и вся ваша никчемная жизнь. Перед глазами все меркнет.'
 };
-export const superAttack1 = {
+export const superAttack1: TAttack = {
   name: 'Призвать Испепеляющее Некромантическое Звездное Пламя Ада',
   lucky: 'Столб мертвенного сияния обрушивается на противника с небес. Когда ваша сетчатка восстанавливается, вы видите, как он, пошатываясь, пытается подняться. Добьем его!',
   unlucky: 'Столб мертвенного сияния обрушивается на противника с небес. Когда ваша сетчатка восстанавливается, вы видите, что он стоит невредимый, паскудно ухмыляясь: юркая зараза просто отступила в сторону и теперь контратакует. Защищайтесь!',
@@ -50,15 +46,15 @@ export const superAttack1 = {
   loose: 'Столб мертвенного сияния обрушивается с небес, но острая боль в черепе мешает вам дочитать заклинание: слишком долго, проклятый гаденыш добрался до вас раньше. Перед глазами все меркнет.'
 };
 
-export const REMOVE_CARD = 'REMOVE_CARD';
-export const ADD_CARD = 'ADD_CARD';
-export const EDIT_CARD = 'EDIT_CARD';
-export const SET_LOCATION = 'SET_LOCATION';
-export const ON_CLICK = 'ON_CLICK';
-export const REMOVE_ON_CLICK = 'REMOVE_ON_CLICK';
-export const REMOVE_LOCATIONS = 'REMOVE_LOCATIONS';
+export const REMOVE_CARD: 'REMOVE_CARD' = 'REMOVE_CARD';
+export const ADD_CARD: 'ADD_CARD' = 'ADD_CARD';
+export const EDIT_CARD: 'EDIT_CARD' = 'EDIT_CARD';
+export const SET_LOCATION: 'SET_LOCATION' = 'SET_LOCATION';
+export const ON_CLICK: 'ON_CLICK' = 'ON_CLICK';
+export const REMOVE_ON_CLICK: 'REMOVE_ON_CLICK' = 'REMOVE_ON_CLICK';
+export const REMOVE_LOCATIONS: 'REMOVE_LOCATIONS' = 'REMOVE_LOCATIONS';
 
-export const points = [ 
+export const points: TPoint[] = [ 
   { 
     text1: "Женечка прошла курс по обучению на веб-разработчика от Яндекс.Практикума (январь 2023) и курс по react-разработке там же (май 2023).",
     text2: "Пауза связана с тем, что Женечку снова захантили в документоведы.",
@@ -121,12 +117,12 @@ export const points = [
     title: '10. Бонус'
   }, 
   { 
-    text1: "Недостатки: начальники периодически не слышат ее стоп-слово. Но эту увлекательную историю она расскажет на собеседовании.",
+    text1: "Недостатки: начальники не слышат ее стоп-слово. Но эту увлекательную историю она расскажет на собеседовании.",
     pic: mem11,
     title: '11. Умение держать интригу'
   }, 
 ];
 
-export const pics = [
+export const pics: string[] = [
   mem6, mem7, mem8, mem9, mem10, mem14
 ]

@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import AboutMe from './AboutMe/AboutMe.jsx';
+import { FC, useState } from "react";
+import AboutMe from './AboutMe/AboutMe';
 import './Main.css';
 import mem from '../../images/mem1.jpg';
 import Preloader from './Preloader/Preloader.js';
-import Promo from './Promo/Promo.jsx';
-import BattleBlock from './BattleBlock/BattleBlock.jsx';
-import CardsHolder from './CardsHolder/CardsHolder.jsx';
+import Promo from './Promo/Promo';
+import BattleBlock from './BattleBlock/BattleBlock';
+import CardsHolder from './CardsHolder/CardsHolder';
 
-function Main() {
+const Main: FC = () => {
 
   const [battleIsVisible, setBattleIsVisible] = useState(false);
   const [studyIsVisible, setStudyIsVisible] = useState(false);

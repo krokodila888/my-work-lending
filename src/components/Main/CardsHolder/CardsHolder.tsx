@@ -1,42 +1,46 @@
-import React, { useEffect, useState } from "react";
+import { FC, useEffect, useState, useRef } from "react";
+import { useSelector, useDispatch } from 'react-redux';
 import './CardsHolder.css';
 import pencil from '../../../images/pencil.png';
 import gurb from '../../../images/gurb.png';
-import { addCard, removeCard, editCard } from '../../../services/actions/cards.js';
-import { useSelector, useDispatch } from 'react-redux';
+import { addCard, removeCard, editCard } from '../../../services/actions/cards';
+import { useAppDispatch } from '../../../services/hooks';
+import { useAppSelector } from '../../../services/hooks';
+import { TCard } from "../../../utils/types";
 
-function CardsHolder() {
+const CardsHolder: FC = () => {
 
-  const { cards } = useSelector(state => state.cardsReducer);
-  const dispatch = useDispatch();
+  const { cards } = useAppSelector((state) => state.cardsReducer);
+  const dispatch = useAppDispatch();
   const [repeatMode, setRepeatMode] = useState(false);
   const [addNewCard, setAddNewCard] = useState(false);
   const [showWord, setShowWord] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
   const [showCards, setShowCards] = useState(false);
   const [editItem, setEditItem] = useState(false);
-  const [currentWord, setCurrentWord] = useState({});
+  const [currentWord, setCurrentWord] = useState<TCard | null>(null);
   const [form, setValue] = useState({ text: '', translation: '' });
   const [repeatingForm, setMeaning] = useState({ word: '' });
   const [editingForm, setEditedMeaning] = useState({ text: '', translation: '', ID: 0 });
-  const [repeatedWords, setRepeatedWords] = useState([]);
-  const [wordsToRepeat, setWordsToRepeat] = useState([]);
-  const repeatingInput = document.getElementById('cardsHolderRepeatingInput');
+  const [repeatedWords, setRepeatedWords] = useState<TCard[]>([]);
+  const [wordsToRepeat, setWordsToRepeat] = useState<TCard[]>([]);
+  //const repeatingInput = document.getElementById('cardsHolderRepeatingInput');
+  const cardsHolderRepeatingInput = useRef<any>(null);
 
   useEffect(()=> {
-    if (cards !== []) 
+    if (cards.length !== 0) 
     setWordsToRepeat(cards)
   }, [])
 
   useEffect(()=> {
-    if (cards !== []) 
+    if (cards.length !== 0) 
     setWordsToRepeat(cards)
   }, [cards])
 
   function getText() {
-    if (cards === []) return 'У вас еще нет сохраненных карточек';
-    if (cards !== [] && cards.length === 1) return `У вас ${cards.length} сохраненная карточка`;
-    if (cards !== [] && (cards.length === 2 || cards.length === 3 || cards.length === 4)) return `У вас ${cards.length} сохраненные карточки`;
+    if (cards.length === 0) return 'У вас еще нет сохраненных карточек';
+    if (cards.length !== 0 && cards.length === 1) return `У вас ${cards.length} сохраненная карточка`;
+    if (cards.length !== 0 && (cards.length === 2 || cards.length === 3 || cards.length === 4)) return `У вас ${cards.length} сохраненные карточки`;
     else return `У вас ${cards.length} сохраненных карточек`
   };
 
@@ -51,7 +55,7 @@ function CardsHolder() {
     setShowCards(true);
   };
 
-  function openEditCard(item) {
+  function openEditCard(item: any) {
     setEditItem(true);
     setEditedMeaning({ ...editingForm, text: item.text, translation: item.translation, ID: item.ID });
   };
@@ -70,15 +74,15 @@ function CardsHolder() {
     setShowWord(true);
   };
 
-  const onChange = e => {
+  const onChange = (e: any) => {
     setValue({ ...form, [e.target.name]: e.target.value });
   };
 
-  const onRepeatChange = e => {
+  const onRepeatChange = (e: any) => {
     setMeaning({ ...repeatingForm, [e.target.name]: e.target.value });
   };
 
-  const onEditChange = e => {
+  const onEditChange = (e: any) => {
     setEditedMeaning({ ...editingForm, [e.target.name]: e.target.value });
   };
 
@@ -88,7 +92,7 @@ function CardsHolder() {
     setValue({ text: '', translation: '' })
   };
 
-  const handleEditSubmit = e => {
+  const handleEditSubmit = (e: any) => {
     e.preventDefault();
     dispatch(editCard(editingForm));
     setEditItem(false);
@@ -108,7 +112,7 @@ function CardsHolder() {
     setEditedMeaning({ text: '', translation: '', ID: 0 });
   }
 
-  function deleteCard(item) {
+  function deleteCard(item: any) {
     dispatch(removeCard(item))
   }
 
@@ -122,10 +126,12 @@ function CardsHolder() {
   function word() {
     return (
     <>
+      {currentWord &&
       <p className="cardsHolder__title">
         {currentWord.translation}
       </p>
-      {showWord && 
+      }
+      {showWord && currentWord &&
       <>
         <p className="cardsHolder__title">
           {currentWord.text}
@@ -136,20 +142,20 @@ function CardsHolder() {
   }
 
   useEffect(()=> {
-    if (repeatingInput && (currentWord.text === repeatingForm.word)) 
+    if (cardsHolderRepeatingInput && currentWord && (currentWord.text === repeatingForm.word)) 
     {setIsCorrect(true);
-    repeatingInput.classList.add('cardsHolder__input_active');};
-    if (repeatingInput && (currentWord.text !== repeatingForm.word) && isCorrect) {
+      cardsHolderRepeatingInput.current.classList.add('cardsHolder__input_active');};
+    if (cardsHolderRepeatingInput && currentWord && (currentWord.text !== repeatingForm.word) && isCorrect) {
       setIsCorrect(false);
-      repeatingInput.classList.remove('cardsHolder__input_active');};
+      cardsHolderRepeatingInput.current.classList.remove('cardsHolder__input_active');};
   }, [repeatingForm])
 
   function nextWord1() {
-    setRepeatedWords([...repeatedWords, currentWord]);
+    setRepeatedWords([...repeatedWords, currentWord as TCard]);
     setShowWord(false);
     setIsCorrect(false);
     setMeaning({ ...repeatingForm, word: '' });
-    repeatingInput.classList.remove('cardsHolder__input_active');
+    cardsHolderRepeatingInput.current.classList.remove('cardsHolder__input_active');
     if (wordsToRepeat.length > 1) {setCurrentWord(wordsToRepeat[1]); 
     setWordsToRepeat(wordsToRepeat.slice(1));}
     else {setCurrentWord({text: 'Правда все. Добавьте новые карточки (или подождите, пока мы добавим кнопку "Начать заново"', translation: 'Вы повторили все!'})}
@@ -164,11 +170,11 @@ function CardsHolder() {
         {!repeatMode && <button className='btn' onClick={showAddForm}>
           Добавить карточку
         </button>}
-        {cards.length !== 0 && cards !== [] && !repeatMode && 
+        {cards.length !== 0 && !repeatMode && 
           <button className='btn' onClick={startRepeating}>
             Повторить слова
           </button>}
-        {cards !== [] && cards.length !== 0 && !repeatMode && 
+        {cards.length !== 0 && !repeatMode && 
           <button className='btn' onClick={showAllCards}>
             Посмотреть на карточки
           </button>}
@@ -214,6 +220,7 @@ function CardsHolder() {
           placeholder="Место для правильного значения" 
           value={repeatingForm.word} 
           id='cardsHolderRepeatingInput'
+          ref={cardsHolderRepeatingInput}
           type="text"
           name="word" 
           onChange={onRepeatChange}
@@ -239,7 +246,7 @@ function CardsHolder() {
         </div>
       </div>}
       <div>
-      {showCards && cards !== [] && cards.map((item, i) => (
+      {showCards && cards.length !== 0 && cards.map((item: any, i: number) => (
         <div key={i} className="cardsHolder__card">
           <p>
             {item.text}
@@ -252,7 +259,7 @@ function CardsHolder() {
         </div>))
       }
       </div>
-      {showCards && cards !== [] && editItem && 
+      {showCards && cards.length !== 0 && editItem && 
         <form className='cardsHolder__form' onSubmit={handleEditSubmit}>
           <input 
             placeholder='Слово на иностранном языке' 
@@ -283,7 +290,7 @@ function CardsHolder() {
             </button>
           </div>
         </form>}
-      {showCards && cards !== [] && 
+      {showCards && cards.length !== 0 && 
         <button 
           className='cardsHolder__button cardsHolder__button1'
           onClick={hideAllCards}>

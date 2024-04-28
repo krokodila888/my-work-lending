@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { FC, useState } from "react";
 import left from '../../../images/left.png';
 import right from '../../../images/right.png';
 import './Promo.css';
-import { points } from '../../../utils/constants.js';
+import { points } from '../../../utils/constants';
 
-function Promo() {
+const Promo: FC = () => {
 
   const [count, setCount] = useState(0);
 
@@ -26,7 +26,7 @@ function Promo() {
     };
   }
 
-  function colorLastWord(item) {
+  function colorLastWord(item: string) {
     let start = item.split(' ');
     let last = start.pop();
     let first = start.join(' ') + ' ';

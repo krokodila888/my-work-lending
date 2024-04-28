@@ -1,7 +1,8 @@
+import React, { FC } from "react";
 import './footer.css';
 import telegram from '../../images/tlg.png';
 
-function Footer() {
+const Footer: FC = () => {
 
   return (
     <footer className="footer">

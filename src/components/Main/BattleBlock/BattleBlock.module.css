@@ -1,8 +1,12 @@
 @import url(../../../vendor/Railroad/stylesheet.css);
 
 @keyframes ani {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .aboutMe__content {
@@ -29,7 +33,7 @@
   margin-left: auto;
 }
 
-.aboutMe__button-content {
+.aboutMe__buttonContent {
   justify-items: center;
   position: relative;
   display: flex;
@@ -41,7 +45,7 @@
 }
 
 .aboutMe__title {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: 22px;
   line-height: 27px;
@@ -50,7 +54,7 @@
 }
 
 .aboutMe__name-text {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: 50px;
   line-height: 58px;
@@ -59,18 +63,16 @@
 }
 
 .aboutMe__status-text {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 500;
   font-size: 18px;
   line-height: 20px;
   margin: 0;
   padding-bottom: 26px;
-  font-weight: 600;
-  letter-spacing: 1.4px;
 }
 
-.aboutMe__story-text {
-  font-family: 'Inter', sans-serif;
+.aboutMe__storyText {
+  font-family: "Inter", sans-serif;
   font-weight: 600;
   font-size: 18px;
   line-height: 28px;
@@ -86,7 +88,7 @@
 }
 
 .aboutMe__text {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 28px;
@@ -140,7 +142,7 @@
 .aboutMe__link {
   text-decoration: none;
   color: rgb(150, 149, 149);
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
@@ -175,7 +177,7 @@
   letter-spacing: 2px;
   text-align: center;
   position: relative;
-  transition: all .35s;
+  transition: all 0.35s;
   margin: 10px auto 0 auto;
   border-radius: 20px;
 }
@@ -191,7 +193,7 @@
   }
 }
 
-.aboutMe__button:after{
+.aboutMe__button:after {
   position: absolute;
   content: "";
   top: 0;
@@ -199,16 +201,16 @@
   width: 0;
   height: 100%;
   background: #38c6c1;
-  transition: all .35s;
+  transition: all 0.35s;
   opacity: 0.4;
   border-radius: 20px;
 }
 
-.aboutMe__button1:after{
+.aboutMe__button1:after {
   background: linear-gradient(to right, yellow, red, blue, black, green);
 }
 
-.aboutMe__button-blocked {
+.aboutMe__buttonBlocked {
   display: none;
 }
 
@@ -239,18 +241,23 @@
 
 .btn:hover {
   box-shadow: 1px 1px 25px 10px rgba(183, 234, 64, 0.4);
-  background: linear-gradient(to right, rgb(229, 255, 192), transparent, rgb(229, 255, 192));
+  background: linear-gradient(
+    to right,
+    rgb(229, 255, 192),
+    transparent,
+    rgb(229, 255, 192)
+  );
   text-shadow: #333;
-  transition: all .5s;
+  transition: all 0.5s;
   transform: scale(1.1);
   border: none;
 }
 
-.aboutMe__button:hover:after{
+.aboutMe__button:hover:after {
   width: 100%;
 }
 
-.aboutMe__res-img {
+.aboutMe__resImg {
   opacity: 0;
   animation: ani 2s forwards;
   /*transition: all .5s;*/
@@ -267,7 +274,7 @@
 }
 
 @media screen and (max-width: 850px) {
-  .aboutMe__story-text {
+  .aboutMe__storyText {
     min-width: 240px;
     width: calc(90%);
     height: -moz-fit-content;
@@ -283,7 +290,7 @@
 }
 
 @media screen and (max-width: 770px) {
-  .aboutMe__button-content {
+  .aboutMe__buttonContent {
     padding: 90px 50px 90px 50px;
   }
 }
@@ -399,7 +406,7 @@
 }
 
 @media screen and (max-width: 450px) {
-  .aboutMe__button-content {
+  .aboutMe__buttonContent {
     padding: 70px 20px 70px 20px;
   }
 }

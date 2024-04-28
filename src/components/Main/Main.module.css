@@ -1,0 +1,135 @@
+@import url(../../vendor/Railroad/stylesheet.css);
+
+@keyframes ani {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.main__content {
+  background-color: #ffffff;
+}
+
+.slider__img2 {
+  width: 80%;
+  flex-grow: 1;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 320px;
+  min-height: 150px;
+}
+
+@media screen and (max-width: 500px) {
+  .slider__img2 {
+    width: 100%;
+    box-shadow: none;
+  }
+}
+
+.main__section {
+  justify-items: center;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  padding: 70px 70px 70px 70px;
+  max-width: 1040px;
+  min-height: 400px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media screen and (max-width: 950px) {
+  .main__section {
+    flex-direction: column;
+    padding-top: 20px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .main__section {
+    padding: 10px 20px 40px;
+  }
+}
+
+.main__buttonContent {
+  justify-items: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 70px 70px 70px 70px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: rgb(210 210 210);
+}
+
+.main__text {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  margin: 0;
+  max-width: 600px;
+  padding-right: 49px;
+  padding-bottom: 20px;
+}
+
+@media screen and (max-width: 620px) {
+  .main__text {
+    font-size: 18px;
+    line-height: 24px;
+    /*max-width: 364px;*/
+    padding-right: 0;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .main__text {
+    padding-right: 0;
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+
+.main__column {
+  display: flex;
+  flex-direction: column;
+  max-width: 650px;
+  justify-content: flex-start;
+}
+
+.main__link {
+  text-decoration: none;
+  color: rgb(150, 149, 149);
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  padding-top: 30px;
+  margin-bottom: 30px;
+}
+
+.main__link:hover {
+  opacity: 0.5;
+  cursor: pointer;
+  transition: 1s;
+}
+
+@media screen and (max-width: 650px) {
+  .main__link {
+    padding-top: 40px;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .main__buttonContent {
+    padding: 90px 50px 90px 50px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .main__buttonContent {
+    padding: 70px 20px 70px 20px;
+  }
+}

@@ -1,8 +1,12 @@
 @import url(../../../vendor/Railroad/stylesheet.css);
 
 @keyframes ani {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .cardsHolder__form {
@@ -20,7 +24,7 @@
   padding-left: 20px;
   background-color: rgb(255, 255, 243);
   border: 1px solid #e4e3de;
-} 
+}
 
 @media screen and (max-width: 570px) {
   .cardsHolder__input {
@@ -31,14 +35,14 @@
 
 .cardsHolder__input_active {
   background-color: rgb(148, 228, 126);
-} 
+}
 
-.cardsHolder__input_active:focus { 
+.cardsHolder__input_active:focus {
   background-color: rgb(148, 228, 126);
 }
-.cardsHolder__input_active:active { 
+.cardsHolder__input_active:active {
   font-weight: bold;
-  background-color: rgb(148, 228, 126); 
+  background-color: rgb(148, 228, 126);
 }
 
 .cardsHolder__card {
@@ -80,9 +84,14 @@
 
 .cardsHolder__button:hover {
   box-shadow: 1px 1px 25px 10px rgba(234, 64, 64, 0.4);
-  background: linear-gradient(to right, rgb(255, 192, 196), transparent, rgb(255, 192, 192));
+  background: linear-gradient(
+    to right,
+    rgb(255, 192, 196),
+    transparent,
+    rgb(255, 192, 192)
+  );
   text-shadow: #333;
-  transition: all .5s;
+  transition: all 0.5s;
   transform: scale(1.1);
   border: none;
 }
@@ -91,14 +100,14 @@
   margin-top: 20px;
 }
 
-.cardsHolder__button-block {
+.cardsHolder__buttonBlock {
   display: flex;
   flex-direction: row;
   gap: 20px;
 }
 
 @media screen and (max-width: 570px) {
-  .cardsHolder__button-block {
+  .cardsHolder__buttonBlock {
     flex-direction: column;
   }
 }
@@ -116,7 +125,7 @@
 }
 
 .cardsHolder__title {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: 22px;
   line-height: 27px;
@@ -163,14 +172,19 @@
 
 .btn:hover {
   box-shadow: 1px 1px 25px 10px rgba(183, 234, 64, 0.4);
-  background: linear-gradient(to right, rgb(229, 255, 192), transparent, rgb(229, 255, 192));
+  background: linear-gradient(
+    to right,
+    rgb(229, 255, 192),
+    transparent,
+    rgb(229, 255, 192)
+  );
   text-shadow: #333;
-  transition: all .5s;
+  transition: all 0.5s;
   transform: scale(1.1);
   border: none;
 }
 
-.aboutMe__button:hover:after{
+.aboutMe__button:hover:after {
   width: 100%;
 }
 

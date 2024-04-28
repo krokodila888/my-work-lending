@@ -46,15 +46,15 @@ root.render(
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 //reportWebVitals();
 
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import { Provider } from 'react-redux';
-import reportWebVitals from './reportWebVitals';
-import App from './components/App/App';
-import { compose } from 'redux';
-import { BrowserRouter } from 'react-router-dom';
-import { store } from './services/store';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import { Provider } from "react-redux";
+import reportWebVitals from "./reportWebVitals";
+import App from "./components/App/App";
+import { compose } from "redux";
+import { BrowserRouter } from "react-router-dom";
+import { store } from "./services/store";
 
 declare global {
   interface Window {
@@ -63,7 +63,7 @@ declare global {
 }
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLFormElement
+  document.getElementById("root") as HTMLFormElement,
 );
 
 root.render(
@@ -73,7 +73,7 @@ root.render(
         <App />
       </BrowserRouter>
     </Provider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );
 
 reportWebVitals();

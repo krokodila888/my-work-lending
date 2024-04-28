@@ -1,10 +1,6 @@
-import {
-  ADD_CARD,
-  REMOVE_CARD,
-  EDIT_CARD
-} from "../../utils/constants";
+import { ADD_CARD, REMOVE_CARD, EDIT_CARD } from "../../utils/constants";
 
-import { TCard } from '../../utils/types';
+import { TCard } from "../../utils/types";
 
 export interface IAddCard {
   readonly type: typeof ADD_CARD;
@@ -21,28 +17,25 @@ export interface IEditCard {
   readonly editedItem: TCard;
 }
 
-export type TCardActions =
-  | IAddCard
-  | IRemoveCard
-  | IEditCard
+export type TCardActions = IAddCard | IRemoveCard | IEditCard;
 
 export function addCard(data: TCard) {
   return {
     type: ADD_CARD,
-    item: data
-  }
+    item: data,
+  };
 }
 
 export function removeCard(data: TCard) {
   return {
     type: REMOVE_CARD,
-    removedItem: data
-  }
-} 
+    removedItem: data,
+  };
+}
 
 export function editCard(data: TCard) {
   return {
     type: EDIT_CARD,
-    editedItem: data
-  }
-} 
+    editedItem: data,
+  };
+}

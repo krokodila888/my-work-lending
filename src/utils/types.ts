@@ -5,7 +5,7 @@ export type TPoint = {
   pic: string;
   title: string;
 };
- 
+
 export type TAttack = {
   name: string;
   lucky: string;
@@ -15,7 +15,7 @@ export type TAttack = {
 };
 
 export type TCard = {
-  text: string; 
-  translation: string; 
-  ID?: number
+  text: string;
+  translation: string;
+  ID?: number;
 };

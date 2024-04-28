@@ -8,6 +8,6 @@ declare module '*.scss' {
   export default classNames;
 }
 declare module '*.css' {
-    const content: Record<string, string>;
-    export default content;
+  const content: Record<string, string>;
+  export default content;
 }

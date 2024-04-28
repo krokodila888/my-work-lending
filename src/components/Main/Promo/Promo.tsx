@@ -1,8 +1,8 @@
-import { FC, useState } from "react";
-import left from "../../../images/left.png";
-import right from "../../../images/right.png";
-import styles from './Promo.module.css';
-import { points } from "../../../utils/constants";
+import { FC, useState } from 'react';
+import left from '../../../images/left.png';
+import right from '../../../images/right.png';
+import styles from './Promo.module.scss';
+import { points } from '../../../utils/constants';
 
 const Promo: FC = () => {
   const [count, setCount] = useState(0);
@@ -26,12 +26,12 @@ const Promo: FC = () => {
   }
 
   function colorLastWord(item: string) {
-    let start = item.split(" ");
-    let last = start.pop();
-    let first = start.join(" ") + " ";
+    const start = item.split(' ');
+    const last = start.pop();
+    const first = start.join(' ') + ' ';
     return (
       <>
-        <h3 className={styles.slide__title}>
+        <h3 className={styles.slider__title}>
           {first}
           <span className={styles.span_color}>{last}</span>
         </h3>
@@ -43,31 +43,27 @@ const Promo: FC = () => {
     <section className={styles.slider}>
       <img
         src={left}
-        alt="Стрелка влево в виде клавиши клавиатуры"
+        alt='Стрелка влево в виде клавиши клавиатуры'
         className={`${styles.slider__btn} ${styles.slider__btn_left}`}
         onClick={handleLeftClick}
       />
       <div className={styles.slider__container}>
         <img
           src={points[count].pic}
-          alt="Айтишный мем"
+          alt='Айтишный мем'
           className={styles.slider__img}
         />
-        <div className={styles.slide__textblock}>
+        <div className={styles.slider__textblock}>
           {colorLastWord(points[count].title)}
-          <p className={styles.slider__text}>
-            {points[count].text1}
-          </p>
+          <p className={styles.slider__text}>{points[count].text1}</p>
           {points[count].text2 && (
-            <p className={styles.slider__text}>
-              {points[count].text2}
-            </p>
+            <p className={styles.slider__text}>{points[count].text2}</p>
           )}
         </div>
       </div>
       <img
         src={right}
-        alt="Стрелка право в виде клавиши клавиатуры"
+        alt='Стрелка право в виде клавиши клавиатуры'
         className={`${styles.slider__btn} ${styles.slider__btn_right}`}
         onClick={handleRightClick}
       />

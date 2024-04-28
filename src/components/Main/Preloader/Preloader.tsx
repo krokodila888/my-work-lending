@@ -1,13 +1,12 @@
-import { FC } from "react";
-import styles from './Preloader.module.css';
-import mereng from "../../../images/mereng.png";
+import { FC } from 'react';
+import styles from './Preloader.module.scss';
+import mereng from '../../../images/mereng.png';
 
 type TPreloaderProps = {
   isLoading: boolean;
 };
 
 const Preloader: FC<TPreloaderProps> = (props) => {
-
   const { isLoading } = props;
 
   return (
@@ -15,7 +14,7 @@ const Preloader: FC<TPreloaderProps> = (props) => {
       <div className={styles.preloader__container}>
         <img
           src={mereng}
-          alt="Фото красивой меренги в виде прелоадера, медленно крутится"
+          alt='Фото красивой меренги в виде прелоадера, медленно крутится'
           className={styles.preloader__round}
         />
       </div>

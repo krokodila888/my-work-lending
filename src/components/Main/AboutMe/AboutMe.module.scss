@@ -1,0 +1,206 @@
+@import url(../../../vendor/Railroad/stylesheet.css);
+
+.aboutMe {
+  justify-items: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 70px 20px 70px;
+  max-width: 1040px;
+  min-height: 400px;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media (max-width: 770px) {
+    padding: 90px 50px 20px 50px;
+  }
+  
+  @media (max-width: 450px) {
+    padding: 0px 20px 0 20px;
+  }
+
+  &__nameText {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 58px;
+    margin: 0;
+    padding-bottom: 18px;
+
+    @media (max-width: 1050px) {
+      position: absolute;
+      font-size: 40px;
+      line-height: 40px;
+      padding-bottom: 16px;
+      top: 90px;
+      left: 90px;
+      color: #343434;
+    }
+    
+    @media (max-width: 770px) {
+      font-size: 40px;
+      line-height: 40px;
+      padding-bottom: 16px;
+      left: 70px;
+    }
+    
+    @media (max-width: 450px) {
+      left: 50px;
+    }
+  }
+
+  &__statusText {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 20px;
+    margin: 0;
+    padding-bottom: 26px;
+    font-weight: 600;
+    letter-spacing: 1.4px;
+    
+    @media (max-width: 1050px) {
+      width: 220px;
+      position: absolute;
+      top: 140px;
+      left: 90px;
+    }
+
+    @media (max-width: 770px) {
+      font-size: 14px;
+      line-height: 22px;
+      left: 70px;
+    }
+
+    @media (max-width: 450px) {
+      left: 50px;
+    }
+  }
+
+  &__text {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    margin: 0;
+    max-width: 600px;
+    padding-right: 49px;
+    padding-bottom: 20px;
+
+    @media (max-width: 620px) {
+      font-size: 18px;
+      line-height: 24px;
+      padding-right: 0;
+    }
+    
+    @media (max-width: 450px) {
+      padding-right: 0;
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+
+  &__text1 {
+    color: #7d7b7b;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.5;
+      transition: 0.4s ease;
+    }
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    max-width: 650px;
+    justify-content: space-between;
+  }
+
+  &__textBlock {
+    display: flex;
+    flex-direction: row;
+    padding-top: 66px;
+    justify-content: space-between;
+
+    @media (max-width: 1050px) {
+      flex-direction: column-reverse;
+      padding-top: 60px;
+    }
+    
+    @media (max-width: 1050px) {
+      flex-direction: column-reverse;
+      padding-top: 60px;
+    }
+    
+    @media (max-width: 770px) {
+      padding-top: 0;
+    }
+    
+    @media (max-width: 450px) {
+      padding-top: 60px;
+    }
+  }
+
+  &__photo {
+    width: 270px;
+    height: 327px;
+    border-radius: 10px;
+
+    @media (max-width: 1050px) {
+      padding-bottom: 40px;
+    }
+    
+    @media (max-width: 770px) {
+      width: 255px;
+      height: 307px;
+    }
+    
+    @media (max-width: 450px) {
+      padding-bottom: 40px;
+      width: 292px;
+      height: 352px;
+    }
+    
+    @media (max-width: 350px) {
+      padding-bottom: 40px;
+      width: 265px;
+      height: 330px;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: rgb(150, 149, 149);
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    padding-top: 30px;
+    margin-bottom: 30px;
+
+    &:hover {
+      opacity: 0.5;
+      cursor: pointer;
+      transition: 1s;
+    }
+
+    @media (max-width: 650px) {
+      padding-top: 40px;
+    }
+  }
+}
+
+.span_color {
+  color: rgb(255 122 178 / 88%);
+}
+
+.span_color2 {
+  color: rgb(255 5 110);
+  font-weight: 600;
+}
+
+.span_color3 {
+  color: rgb(33 3 133);
+  font-weight: 600;
+}

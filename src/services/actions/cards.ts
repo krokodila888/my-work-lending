@@ -1,6 +1,6 @@
-import { ADD_CARD, REMOVE_CARD, EDIT_CARD } from "../../utils/constants";
+import { ADD_CARD, REMOVE_CARD, EDIT_CARD } from '../../utils/constants';
 
-import { TCard } from "../../utils/types";
+import { TCard } from '../../utils/types';
 
 export interface IAddCard {
   readonly type: typeof ADD_CARD;

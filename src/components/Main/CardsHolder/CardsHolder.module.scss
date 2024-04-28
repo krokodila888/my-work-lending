@@ -1,0 +1,180 @@
+@import url(../../../vendor/Railroad/stylesheet.css);
+
+@keyframes ani {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.cardsHolder {
+  justify-items: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 60px 70px 100px 70px;
+  max-width: 1140px;
+  min-height: 400px;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media (max-width: 770px) {
+    padding: 90px 50px 90px 50px;
+  }
+
+  @media (max-width: 650px) {
+    padding: 70px 14px 70px 14px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 80%;
+    padding-top: 30px;
+  }
+
+  &__input {
+    display: block;
+    height: 40px;
+    border-radius: 20px;
+    padding-left: 20px;
+    background-color: rgb(255, 255, 243);
+    border: 1px solid #e4e3de;
+
+    &_active {
+      background-color: rgb(148, 228, 126);
+
+      &:focus {
+        background-color: rgb(148, 228, 126);
+      }
+
+      &:active {
+        font-weight: bold;
+        background-color: rgb(148, 228, 126);
+      }
+    }
+
+    @media (max-width: 570px) {
+      padding-left: 15px;
+      min-width: 250px;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: row;
+    justify-items: end;
+    align-items: center;
+    background-color: rgb(241, 245, 227);
+    border-radius: 20px;
+    border: 1px solid rgb(208, 205, 205);
+    margin: 20px 0;
+    gap: 10px;
+    width: 350px;
+    padding: 5px 15px;
+    justify-content: space-between;
+
+    @media (max-width: 570px) {
+      width: 250px;
+    }
+
+    & p {
+      margin: 0;
+      width: 100px;
+    }
+  }
+
+  &__button {
+    text-decoration: none;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    height: 40px;
+    width: 200px;
+    font-weight: 600;
+    border-radius: 20px;
+
+    &:hover {
+      box-shadow: 1px 1px 25px 10px rgba(234, 64, 64, 0.4);
+      background: linear-gradient(
+        to right,
+        rgb(255, 192, 196),
+        transparent,
+        rgb(255, 192, 192)
+      );
+      text-shadow: #333;
+      transition: all 0.5s;
+      transform: scale(1.1);
+      border: none;
+    }
+  }
+
+  &__button1 {
+    margin-top: 20px;
+  }
+
+  &__buttonBlock {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+    @media (max-width: 570px) {
+      flex-direction: column;
+    }
+  }
+
+  &__title {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 27px;
+    margin: 0;
+    padding-bottom: 23px;
+
+    @media (max-width: 650px) {
+      padding-bottom: 28px;
+      font-size: 18px;
+      line-height: 22px;
+    }
+  }
+
+  &__pensil {
+    width: 25px;
+    height: 25px;
+
+    &:hover {
+      opacity: 0.5;
+      cursor: pointer;
+      transition: 0.5s ease;
+    }
+  }
+}
+
+
+.btn {
+  text-decoration: none;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  height: 40px;
+  width: 200px;
+  font-weight: 600;
+  border-radius: 20px;
+
+  &:hover {
+    box-shadow: 1px 1px 25px 10px rgba(183, 234, 64, 0.4);
+    background: linear-gradient(
+      to right,
+      rgb(229, 255, 192),
+      transparent,
+      rgb(229, 255, 192)
+    );
+    text-shadow: #333;
+    transition: all 0.5s;
+    transform: scale(1.1);
+    border: none;
+  }
+}

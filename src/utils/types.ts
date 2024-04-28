@@ -17,5 +17,5 @@ export type TAttack = {
 export type TCard = {
   text: string;
   translation: string;
-  ID?: number;
+  ID?: number | undefined;
 };

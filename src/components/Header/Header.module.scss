@@ -1,0 +1,66 @@
+@import url(../../vendor/Railroad/stylesheet.css);
+
+.header {
+  display: flex;
+  flex-direction: row;
+  background: rgb(148 148 143);
+  color: white;
+  align-items: center;
+  height: 110px;
+  justify-content: center;
+
+  &__content {
+    width: 1040px;
+    display: flex;
+    flex-direction: row;
+    margin: 20px auto;
+    align-items: center;
+
+    @media (max-width: 1180px) {
+      width: calc(100vw - 70px);
+      margin-left: 70px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+
+    @media (max-width: 770px) {
+      width: calc(100vw - 102px);
+      margin-left: 50px;
+      margin-right: 50px;
+    }
+
+    @media (max-width: 450px) {
+      width: calc(100vw - 52px);
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+  }
+
+  &__title {
+    font-weight: 400;
+    font-size: 28px;
+    margin: 0;
+
+    @media screen and (max-width: 770px) {
+      font-size: 22px;
+    }
+
+    @media (max-width: 450px) {
+      font-size: 18px;
+    }
+
+    @media (max-width: 380px) {
+      font-size: 16px;
+    }
+  }
+
+  &__icon {
+    width: 60px;
+    height: 60px;
+    margin-left: 30px;
+
+    @media (max-width: 450px) {
+      margin-left: 15px;
+    }
+  }
+}

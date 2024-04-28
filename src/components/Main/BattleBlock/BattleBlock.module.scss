@@ -1,0 +1,164 @@
+@import url(../../../vendor/Railroad/stylesheet.css);
+
+@keyframes ani {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.battle {
+  justify-items: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 70px 70px 70px 70px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: rgb(210 210 210);
+
+  @media (max-width: 770px) {
+    padding: 90px 50px 90px 50px;
+  }
+  
+  
+  @media (max-width: 450px) {
+    padding: 70px 20px 70px 20px;
+  }
+
+  &__storyText {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 28px;
+    margin: 40px auto 40px auto;
+    min-height: 50px;
+    width: 710px;
+    border-radius: 0 10px 0 10px;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    padding: 12px;
+    background: white;
+
+    @media (max-width: 850px) {
+      min-width: 240px;
+      width: calc(90%);
+      height: -moz-fit-content;
+      height: fit-content;
+      font-size: 16px;
+    }
+  }
+
+  &__button {
+    display: block;
+    width: 740px;
+    min-height: 40px;
+    height: fit-content;
+    line-height: 40px;
+    font-size: 18px;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: #333;
+    background-color: white;
+    border: none;
+    letter-spacing: 2px;
+    text-align: center;
+    position: relative;
+    transition: all 0.35s;
+    margin: 10px auto 0 auto;
+    border-radius: 20px;
+
+    &:after {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background: #38c6c1;
+      transition: all 0.35s;
+      opacity: 0.4;
+      border-radius: 20px;
+    }
+
+    &:hover:after {
+      width: 100%;
+    }
+
+    @media (max-width: 850px) {
+      min-width: 260px;
+      width: calc(90%);
+      font-size: 14px;
+      height: fit-content;
+      line-height: 30px;
+    }
+  }
+
+  &__button1 {
+    &:hover {
+      font-weight: 600;
+      transform: scale(1.3);
+    }
+
+    &:after {
+      background: linear-gradient(to right, yellow, red, blue, black, green);
+    }
+
+    @media screen and (max-width: 650px) {
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+
+  &__buttonBlocked {
+    display: none;
+  }
+
+  &__resImg {
+    opacity: 0;
+    animation: ani 2s forwards;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+
+  & img {
+    width: 120px;
+    height: 120px;
+    margin-top: 20px;
+  }
+}
+
+.btn {
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  height: 40px;
+  width: 200px;
+  font-weight: 600;
+  border-radius: 20px;
+  border: none;
+
+  &:hover {
+    box-shadow: 1px 1px 25px 10px rgba(183, 234, 64, 0.4);
+    background: linear-gradient(
+      to right,
+      rgb(229, 255, 192),
+      transparent,
+      rgb(229, 255, 192)
+    );
+    text-shadow: #333;
+    transition: all 0.5s;
+    transform: scale(1.1);
+    border: none;
+  }
+}

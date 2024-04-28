@@ -1,11 +1,7 @@
-import {
-  compose,
-  legacy_createStore as createStore,
-  applyMiddleware,
-} from "redux";
-import thunk from "redux-thunk";
-import { TCardActions } from "./actions/cards";
-import { rootReducer } from "./reducers/rootReducer";
+import { compose } from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
+import { TCardActions } from './actions/cards';
+import { rootReducer } from './reducers/rootReducer';
 
 export type TAppActions = TCardActions;
 
@@ -14,11 +10,7 @@ declare global {
     __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
   }
 }
-const composeEnhancers =
-  (typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
-  compose;
 
-export const store = createStore(
-  rootReducer,
-  composeEnhancers(applyMiddleware(thunk)),
-);
+export const store = configureStore({
+  reducer: rootReducer,
+});

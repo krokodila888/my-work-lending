@@ -1,7 +1,7 @@
-import { ADD_CARD, REMOVE_CARD, EDIT_CARD } from "../../utils/constants";
+import { ADD_CARD, REMOVE_CARD, EDIT_CARD } from '../../utils/constants';
 
-import { TCard } from "../../utils/types";
-import type { TCardActions } from "../actions/cards";
+import { TCard } from '../../utils/types';
+import type { TCardActions } from '../actions/cards';
 
 type TCardsState = {
   cards: TCard[];

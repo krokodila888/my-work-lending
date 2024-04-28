@@ -1,6 +1,6 @@
-import photo from "../../../images/photo1.jpg";
-import { FC, useState } from "react";
-import styles from './AboutMe.module.css';
+import photo from '../../../images/photo1.jpg';
+import { FC, useState } from 'react';
+import styles from './AboutMe.module.scss';
 
 const AboutMe: FC = () => {
   const [showText, setShowText] = useState(false);
@@ -10,35 +10,30 @@ const AboutMe: FC = () => {
   }
 
   return (
-    <section className={styles.aboutMe__content} id="AboutMe">
+    <section className={styles.aboutMe} id='AboutMe'>
       <div className={styles.aboutMe__textBlock}>
         <div className={styles.aboutMe__column}>
           <div>
             <p className={styles.aboutMe__nameText}>Евгения</p>
             <p className={styles.aboutMe__statusText}>
-              <span className={styles.span_color2}>
-                Фронтенд-разработчик
-              </span>,
+              <span className={styles.span_color2}>Фронтенд-разработчик</span>,
               35&nbsp;лет
             </p>
             <p className={styles.aboutMe__text}>
               Родилась и живу в Москве, отучилась на юриста и менеджера
               информационной безопасности. Замужем, есть дочь. Консультировала
-              людей по настольным играм, работала следователем (ошибки юности),{" "}
-              <span className={styles.span_color2}> 
-                кондитер 4 разряда
-              </span>;
+              людей по настольным играм, работала следователем (ошибки юности),{' '}
+              <span className={styles.span_color2}>кондитер 4 разряда</span>;
               последние годы - корректор-документовед на хорошей зарплате.
               Переучиваюсь на веб-разработчика, чтобы привязать зарплату к
-              универсальному языку и перекрасить волосы в{" "}
-              <span className={styles.span_color3}>
-                синий навсегда.
-              </span>
+              универсальному языку и перекрасить волосы в{' '}
+              <span className={styles.span_color3}>синий навсегда.</span>
             </p>
             <a
               className={styles.aboutMe__link}
-              href="https://github.com/krokodila888"
-              target="_blank"
+              href='https://github.com/krokodila888'
+              target='_blank'
+              rel='noreferrer'
             >
               Мой GitHub
             </a>
@@ -72,7 +67,7 @@ const AboutMe: FC = () => {
         <div className={styles.aboutMe__column}>
           <img
             src={photo}
-            alt="Фото Женечки, ужасно симпатичное"
+            alt='Фото Женечки, ужасно симпатичное'
             className={styles.aboutMe__photo}
           />
         </div>

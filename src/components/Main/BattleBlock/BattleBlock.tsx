@@ -1,14 +1,14 @@
-import React, { FC, useEffect, useState } from "react";
-import rip from "../../../images/rip3.png";
-import win from "../../../images/win4.png";
+import React, { FC, useEffect, useState } from 'react';
+import rip from '../../../images/rip3.png';
+import win from '../../../images/win4.png';
 import {
   attack1,
   attack2,
   attack3,
   superAttack1,
-} from "../../../utils/constants";
-import styles from './BattleBlock.module.css';
-import { TAttack } from "../../../utils/types";
+} from '../../../utils/constants';
+import styles from './BattleBlock.module.scss';
+import { TAttack } from '../../../utils/types';
 
 type TBattleBlockProps = {
   showBattle: () => void;
@@ -30,7 +30,7 @@ const BattleBlock: FC<TBattleBlockProps> = (props) => {
   } = props;
 
   const [text, setText] = useState(
-    "Итак, перед вами штурмовик Империи/гоблин восьмого уровня/ваш враг из отдела закупок, и намерения у него самые недобрые. Ваши действия:",
+    'Итак, перед вами штурмовик Империи/гоблин восьмого уровня/ваш враг из отдела закупок, и намерения у него самые недобрые. Ваши действия:',
   );
   const [attackMaxNum, setAttackMaxNum] = useState(0);
   const [attackCounter, setAttackCounter] = useState(0);
@@ -51,14 +51,14 @@ const BattleBlock: FC<TBattleBlockProps> = (props) => {
     setIsWinning(getFightRes());
     setAttackMaxNum(Math.floor(Math.random() * 2 + 2));
     setText(
-      "И снова перед вами кибергопник/орк десятого уровня/ваш враг из отдела работы с претензиями, и он жаждет вашей крови. Ваши действия:",
+      'И снова перед вами кибергопник/орк десятого уровня/ваш враг из отдела работы с претензиями, и он жаждет вашей крови. Ваши действия:',
     );
     setShowEnd(false);
     setEndGame(false);
     setAttackCounter(0);
     setSuperAttackCounter(false);
     if (superAttack1Button.current) {
-      superAttack1Button.current.classList.remove(styles.aboutMe__buttonBlocked);
+      superAttack1Button.current.classList.remove(styles.battle__buttonBlocked);
     }
   }
 
@@ -94,57 +94,47 @@ const BattleBlock: FC<TBattleBlockProps> = (props) => {
   }
 
   function battleButtonText() {
-    if (battleIsVisible) return "Хватит с меня сражений!";
-    else return "Текстовая битва!!";
+    if (battleIsVisible) return 'Хватит с меня сражений!';
+    else return 'Текстовая битва!!';
   }
 
   function studyButtonText() {
-    if (studyIsVisible) return "Спасибо, достаточно";
-    else return "Учить языки!";
+    if (studyIsVisible) return 'Спасибо, достаточно';
+    else return 'Учить языки!';
   }
 
   function merengButtonText() {
     if (merengIsVisible)
-      return "Офигенно, спасибо. Вернусь когда-нибудь и посмотрю еще";
-    else return "Смотреть прелоадер-безешку";
+      return 'Офигенно, спасибо. Вернусь когда-нибудь и посмотрю еще';
+    else return 'Смотреть прелоадер-безешку';
   }
 
   return (
     <>
-      <section 
-        className={styles.aboutMe__buttonContent} 
-        id="Buttons">
+      <section className={styles.battle} id='Buttons'>
         {!merengIsVisible && !studyIsVisible && (
-          <button 
-            className={styles.aboutMe__button} 
-            onClick={showBattle}>
+          <button className={styles.battle__button} onClick={showBattle}>
             {battleButtonText()}
           </button>
         )}
         {!battleIsVisible && !merengIsVisible && (
-          <button 
-            className={styles.aboutMe__button} 
-            onClick={showStudy}>
+          <button className={styles.battle__button} onClick={showStudy}>
             {studyButtonText()}
           </button>
         )}
         {!studyIsVisible && !battleIsVisible && (
-          <button 
-            className={styles.aboutMe__button} 
-            onClick={showMereng}>
+          <button className={styles.battle__button} onClick={showMereng}>
             {merengButtonText()}
           </button>
         )}
         {battleIsVisible && !merengIsVisible && !studyIsVisible && (
           <>
-            <h3 className={styles.aboutMe__storyText}>
-              {text}
-            </h3>
+            <h3 className={styles.battle__storyText}>{text}</h3>
             {!endGame && (
               <>
                 <button
                   ref={attack1Button}
-                  className={styles.aboutMe__button}
+                  className={styles.battle__button}
                   onClick={() => {
                     makeAttack(attack1);
                   }}
@@ -153,7 +143,7 @@ const BattleBlock: FC<TBattleBlockProps> = (props) => {
                 </button>
                 <button
                   ref={attack2Button}
-                  className={styles.aboutMe__button}
+                  className={styles.battle__button}
                   onClick={() => {
                     makeAttack(attack2);
                   }}
@@ -162,7 +152,7 @@ const BattleBlock: FC<TBattleBlockProps> = (props) => {
                 </button>
                 <button
                   ref={attack3Button}
-                  className={styles.aboutMe__button}
+                  className={styles.battle__button}
                   onClick={() => {
                     makeAttack(attack3);
                   }}
@@ -172,7 +162,7 @@ const BattleBlock: FC<TBattleBlockProps> = (props) => {
                 {!superAttackCounter && (
                   <button
                     ref={superAttack1Button}
-                    className={`${styles.aboutMe__button} ${styles.aboutMe__button1}`}
+                    className={`${styles.battle__button} ${styles.battle__button1}`}
                     onClick={() => {
                       makeAttack(superAttack1);
                     }}
@@ -184,23 +174,21 @@ const BattleBlock: FC<TBattleBlockProps> = (props) => {
             )}
             {showEnd && (
               <div className={styles.container}>
-                <button 
-                  className={styles.btn} 
-                  onClick={startAgain}>
+                <button className={styles.btn} onClick={startAgain}>
                   Сразиться еще раз!
                 </button>
                 {isWinning && (
                   <img
                     src={win}
-                    alt="Знак победы"
-                    className={styles.aboutMe__resImg}
+                    alt='Знак победы'
+                    className={styles.battle__resImg}
                   />
                 )}
                 {!isWinning && (
                   <img
                     src={rip}
-                    alt="Знак поражения"
-                    className={styles.aboutMe__resImg}
+                    alt='Знак поражения'
+                    className={styles.battle__resImg}
                   />
                 )}
               </div>

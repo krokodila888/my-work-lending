@@ -1,11 +1,11 @@
-import { FC, useState } from "react";
-import AboutMe from "./AboutMe/AboutMe";
-import styles from './Main.module.css';
-import mem from "../../images/mem1.jpg";
-import Preloader from "./Preloader/Preloader";
-import Promo from "./Promo/Promo";
-import BattleBlock from "./BattleBlock/BattleBlock";
-import CardsHolder from "./CardsHolder/CardsHolder";
+import { FC, useState } from 'react';
+import AboutMe from './AboutMe/AboutMe';
+import styles from './Main.module.scss';
+import mem from '../../images/mem1.jpg';
+import Preloader from './Preloader/Preloader';
+import Promo from './Promo/Promo';
+import BattleBlock from './BattleBlock/BattleBlock';
+import CardsHolder from './CardsHolder/CardsHolder';
 
 const Main: FC = () => {
   const [battleIsVisible, setBattleIsVisible] = useState(false);
@@ -25,7 +25,7 @@ const Main: FC = () => {
   }
 
   return (
-    <main className={styles.main__content}>
+    <main className={styles.main}>
       <AboutMe />
       <Promo />
       <section className={styles.main__section}>
@@ -37,39 +37,40 @@ const Main: FC = () => {
             но эти штуки милые.
           </p>
           <p className={styles.main__text}>
-            Если захочется посмотреть в деталях - вот{" "}
+            Если захочется посмотреть в деталях - вот{' '}
             <a
               className={styles.main__link}
-              href="https://creating-things.online/"
-              target="_blank"
+              href='https://creating-things.online/'
+              target='_blank'
+              rel='noreferrer'
             >
               словарь с механиками повтрения
             </a>
-            , а тут 
-            {" "}<a
-              className={styles.main__link}
-              href="https://just-a-project.site/"
-              target="_blank"
-            >
-              визуальная новелла в жанре (пост)постапокалипсиса
-            </a>. На{" "}
+            , а тут{' '}
             <a
               className={styles.main__link}
-              href="https://github.com/krokodila888"
-              target="_blank"
+              href='https://just-a-project.site/'
+              target='_blank'
+              rel='noreferrer'
+            >
+              визуальная новелла в жанре (пост)постапокалипсиса
+            </a>
+            . На{' '}
+            <a
+              className={styles.main__link}
+              href='https://github.com/krokodila888'
+              target='_blank'
+              rel='noreferrer'
             >
               моем Гитхабе
-            </a>{" "}есть их код.
+            </a>{' '}
+            есть их код.
           </p>
           <p className={styles.main__text}>
             И помните, что взять Женечку на работу - отличная идея! 🐱
           </p>
         </div>
-        <img 
-          src={mem} 
-          alt="Айтишный мем" 
-          className={styles.slider__img2} 
-        />
+        <img src={mem} alt='Айтишный мем' className={styles.slider__img2} />
       </section>
       <BattleBlock
         showBattle={showBattle}

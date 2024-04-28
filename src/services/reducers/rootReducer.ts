@@ -1,5 +1,5 @@
-import { combineReducers } from "redux";
-import { cardsReducer } from "./cardsReducer";
+import { combineReducers } from 'redux';
+import { cardsReducer } from './cardsReducer';
 
 export const rootReducer = combineReducers({
   cardsReducer,

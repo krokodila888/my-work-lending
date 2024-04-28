@@ -1,0 +1,109 @@
+@import url(../../vendor/Railroad/stylesheet.css);
+
+.main {
+  background-color: #ffffff;
+
+  &__section {
+    justify-items: center;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    padding: 70px 70px 70px 70px;
+    max-width: 1040px;
+    min-height: 400px;
+    margin-right: auto;
+    margin-left: auto;
+
+    @media (max-width: 950px) {
+      flex-direction: column;
+      padding-top: 20px;
+    }
+    
+    @media (max-width: 500px) {
+      padding: 10px 20px 40px;
+    }
+  }
+
+  &__buttonContent {
+    justify-items: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 70px 70px 70px 70px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: rgb(210 210 210);
+
+    @media (max-width: 770px) {
+      padding: 90px 50px 90px 50px;
+    }
+    
+    @media (max-width: 450px) {
+      padding: 70px 20px 70px 20px;
+    }
+  }
+
+  &__text {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    margin: 0;
+    max-width: 600px;
+    padding-right: 49px;
+    padding-bottom: 20px;
+
+    @media (max-width: 620px) {
+      font-size: 18px;
+      line-height: 24px;
+      padding-right: 0;
+    }
+    
+    @media (max-width: 450px) {
+      padding-right: 0;
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    max-width: 650px;
+    justify-content: flex-start;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: rgb(150, 149, 149);
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    padding-top: 30px;
+    margin-bottom: 30px;
+
+    &:hover {
+      opacity: 0.5;
+      cursor: pointer;
+      transition: 1s;
+    }
+    
+    @media (max-width: 650px) {
+      padding-top: 40px;
+    }
+  }
+}
+
+.slider__img2 {
+  width: 80%;
+  flex-grow: 1;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 320px;
+  min-height: 150px;
+
+  @media (max-width: 500px) {
+    width: 100%;
+    box-shadow: none;
+  }
+}

@@ -1,0 +1,33 @@
+$color-background-white: #ffffff;
+$color-background-grey: #d2d2d2;
+$color-background-deepgrey: #555555;
+$color-background-middlegrey: #f0f0f0;
+$color-background-header: #94948f;
+
+$color-font-base: #333;
+$color-font-grey: #e2e2e2;
+$color-font-white: #fff;
+$color-font-link: #7d7b7b;
+
+$color-button-menu: #fff;
+$color-button-hovered: #38c6c1;
+
+$color-input-correct: #d3ffb5;
+$color-input-lightgrey: #fffff3;
+
+$color-span-blue: #210385;
+$color-span-pink: #ff8abb;
+$color-span-deeppink: #ff056e;
+
+$color-background-card: #f1f5e3;
+$color-border-grey: #d0cdcd;
+
+
+$color-border-input: #e4e3de;
+
+
+@mixin hovered {
+  opacity: 0.5;
+  cursor: pointer;
+  transition: 0.4s ease;
+}

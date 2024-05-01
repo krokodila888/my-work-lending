@@ -1,4 +1,4 @@
-@import url(../../../vendor/Railroad/stylesheet.css);
+@import '../../../styles/variables';
 
 .aboutMe {
   justify-items: center;
@@ -34,7 +34,7 @@
       padding-bottom: 16px;
       top: 90px;
       left: 90px;
-      color: #343434;
+      color: $color-font-link;
     }
     
     @media (max-width: 770px) {
@@ -101,12 +101,10 @@
   }
 
   &__text1 {
-    color: #7d7b7b;
+    color: $color-font-link;
 
     &:hover {
-      cursor: pointer;
-      opacity: 0.5;
-      transition: 0.4s ease;
+      @include hovered;
     }
   }
 
@@ -171,7 +169,7 @@
 
   &__link {
     text-decoration: none;
-    color: rgb(150, 149, 149);
+    color: $color-font-link;
     font-family: "Inter", sans-serif;
     font-weight: 500;
     font-size: 18px;
@@ -180,9 +178,7 @@
     margin-bottom: 30px;
 
     &:hover {
-      opacity: 0.5;
-      cursor: pointer;
-      transition: 1s;
+      @include hovered;
     }
 
     @media (max-width: 650px) {
@@ -192,15 +188,15 @@
 }
 
 .span_color {
-  color: rgb(255 122 178 / 88%);
+  color: $color-span-pink;
 }
 
 .span_color2 {
-  color: rgb(255 5 110);
+  color: $color-span-deeppink;
   font-weight: 600;
 }
 
 .span_color3 {
-  color: rgb(33 3 133);
+  color: $color-span-blue;
   font-weight: 600;
 }

@@ -1,4 +1,4 @@
-@import url(../../vendor/Railroad/stylesheet.css);
+@import '../../styles/variables';
 
 .pageNotFound {
   display: flex;
@@ -54,12 +54,10 @@
     margin: 0;
     text-decoration: none;
     padding-top: 10px;
-    color: rgb(112, 112, 112);
+    color: $color-font-link;
 
     &:hover {
-      opacity: 0.5;
-      cursor: pointer;
-      transition: 1s;
+      @include hovered;
     }
 
     @media (max-width: 550px) {
@@ -105,9 +103,7 @@
     top: 35%;
 
     &:hover {
-      cursor: pointer;
-      opacity: 0.5;
-      transition: 0.4s ease;
+      @include hovered;
     }
 
     &_left {

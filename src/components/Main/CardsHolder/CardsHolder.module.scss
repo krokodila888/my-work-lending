@@ -1,4 +1,4 @@
-@import url(../../../vendor/Railroad/stylesheet.css);
+@import '../../../styles/variables';
 
 @keyframes ani {
   0% {
@@ -41,19 +41,19 @@
     height: 40px;
     border-radius: 20px;
     padding-left: 20px;
-    background-color: rgb(255, 255, 243);
-    border: 1px solid #e4e3de;
+    background-color: $color-input-lightgrey;
+    border: 1px solid $color-background-middlegrey;
 
     &_active {
-      background-color: rgb(148, 228, 126);
+      background-color: $color-input-correct;
 
       &:focus {
-        background-color: rgb(148, 228, 126);
+        background-color: $color-input-correct;
       }
 
       &:active {
         font-weight: bold;
-        background-color: rgb(148, 228, 126);
+        background-color: $color-input-correct;
       }
     }
 
@@ -68,9 +68,9 @@
     flex-direction: row;
     justify-items: end;
     align-items: center;
-    background-color: rgb(241, 245, 227);
+    background-color: $color-background-card;
     border-radius: 20px;
-    border: 1px solid rgb(208, 205, 205);
+    border: 1px solid $color-border-grey;
     margin: 20px 0;
     gap: 10px;
     width: 350px;
@@ -87,31 +87,6 @@
     }
   }
 
-  &__button {
-    text-decoration: none;
-    border: none;
-    position: relative;
-    overflow: hidden;
-    height: 40px;
-    width: 200px;
-    font-weight: 600;
-    border-radius: 20px;
-
-    &:hover {
-      box-shadow: 1px 1px 25px 10px rgba(234, 64, 64, 0.4);
-      background: linear-gradient(
-        to right,
-        rgb(255, 192, 196),
-        transparent,
-        rgb(255, 192, 192)
-      );
-      text-shadow: #333;
-      transition: all 0.5s;
-      transform: scale(1.1);
-      border: none;
-    }
-  }
-
   &__button1 {
     margin-top: 20px;
   }
@@ -123,6 +98,8 @@
 
     @media (max-width: 570px) {
       flex-direction: column;
+      // for old iphon browsers
+      gap: 0;
     }
   }
 
@@ -146,35 +123,47 @@
     height: 25px;
 
     &:hover {
-      opacity: 0.5;
-      cursor: pointer;
-      transition: 0.5s ease;
+      @include hovered;
     }
   }
 }
-
 
 .btn {
   text-decoration: none;
   border: none;
   position: relative;
   overflow: hidden;
-  height: 40px;
   width: 200px;
   font-weight: 600;
   border-radius: 20px;
+  text-align: center;
+  min-height: 40px;
+  height: fit-content;
+  margin: 10px 0;
+  
 
-  &:hover {
-    box-shadow: 1px 1px 25px 10px rgba(183, 234, 64, 0.4);
-    background: linear-gradient(
-      to right,
-      rgb(229, 255, 192),
-      transparent,
-      rgb(229, 255, 192)
-    );
-    text-shadow: #333;
-    transition: all 0.5s;
-    transform: scale(1.1);
-    border: none;
+  &__battle {
+    background-color: $color-background-white;
+  }
+
+  &__words {
+    background-color: $color-background-middlegrey;
+  }
+
+  &:after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: $color-button-hovered;
+    transition: all 0.35s;
+    opacity: 0.4;
+    border-radius: 20px;
+  }
+
+  &:hover:after {
+    width: 100%;
   }
 }

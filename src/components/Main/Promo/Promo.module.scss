@@ -1,4 +1,4 @@
-@import url(../../../vendor/Railroad/stylesheet.css);
+@import '../../../styles/variables';
 
 .slider {
   align-self: center;
@@ -9,7 +9,7 @@
   flex-direction: row;
   gap: 20px;
   align-items: center;
-  background-color: rgb(85, 85, 85);
+  background-color: $color-background-deepgrey;
   justify-content: center;
   min-height: 500px;
   box-sizing: border-box;
@@ -59,9 +59,7 @@
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
 
     &:hover {
-      cursor: pointer;
-      opacity: 0.5;
-      transition: 0.4s ease;
+      @include hovered;
     }
 
     @media (max-width: 520px) {
@@ -90,7 +88,7 @@
     line-height: 30px;
     font-size: 18px;
     font-family: sans-serif;
-    color: #e2e2e2;
+    color: $color-font-grey;
     letter-spacing: 2px;
     font-weight: normal;
     align-self: flex-start;
@@ -106,14 +104,14 @@
     line-height: 30px;
     font-size: 24px;
     font-family: sans-serif;
-    color: #e2e2e2;
+    color: $color-font-grey;
     letter-spacing: 2px;
     align-self: flex-start;
     margin: 0;
     font-weight: 600;
   
     &::last-word {
-      color: rgb(177, 4, 61);
+      color: $color-span-deeppink;
     }
   
     @media (max-width: 520px) {
@@ -162,16 +160,16 @@
   text-decoration: line-through;
 
   &_color {
-    color: rgb(255 122 178 / 88%);
+    color: $color-span-pink;
   }
 
   &_color2 {
-    color: rgb(255 5 110);
+    color: $color-span-deeppink;
     font-weight: 600;
   }
 
   &_color3 {
-    color: rgb(33 3 133);
+    color: $color-span-blue;
     font-weight: 600;
   }
 }

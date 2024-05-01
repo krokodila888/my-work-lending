@@ -5,10 +5,13 @@ import {
   attack1,
   attack2,
   attack3,
-  superAttack1,
+  superAttack,
 } from '../../../utils/constants';
 import styles from './BattleBlock.module.scss';
 import { TAttack } from '../../../utils/types';
+import MenuButton from '../../ux/Buttons/MenuButton';
+import BattleButton from '../../ux/Buttons/BattleButton';
+import CheckButton from '../../ux/Buttons/CheckButton';
 
 type TBattleBlockProps = {
   showBattle: () => void;
@@ -38,10 +41,6 @@ const BattleBlock: FC<TBattleBlockProps> = (props) => {
   const [isWinning, setIsWinning] = useState(false);
   const [endGame, setEndGame] = useState(false);
   const [showEnd, setShowEnd] = useState(false);
-  const attack1Button = React.useRef(null);
-  const attack2Button = React.useRef(null);
-  const attack3Button = React.useRef(null);
-  const superAttack1Button = React.useRef<HTMLButtonElement>(null);
 
   function getFightRes() {
     return Math.floor(Math.random() * 2 + 1) === 1;
@@ -57,9 +56,6 @@ const BattleBlock: FC<TBattleBlockProps> = (props) => {
     setEndGame(false);
     setAttackCounter(0);
     setSuperAttackCounter(false);
-    if (superAttack1Button.current) {
-      superAttack1Button.current.classList.remove(styles.battle__buttonBlocked);
-    }
   }
 
   useEffect(() => {
@@ -90,7 +86,7 @@ const BattleBlock: FC<TBattleBlockProps> = (props) => {
   }
 
   function deleteAttackButton(item: TAttack) {
-    if (item === superAttack1) setSuperAttackCounter(true);
+    if (item === superAttack) setSuperAttackCounter(true);
   }
 
   function battleButtonText() {
@@ -113,70 +109,57 @@ const BattleBlock: FC<TBattleBlockProps> = (props) => {
     <>
       <section className={styles.battle} id='Buttons'>
         {!merengIsVisible && !studyIsVisible && (
-          <button className={styles.battle__button} onClick={showBattle}>
-            {battleButtonText()}
-          </button>
+          <MenuButton handleClick={showBattle} makeText={battleButtonText} />
         )}
         {!battleIsVisible && !merengIsVisible && (
-          <button className={styles.battle__button} onClick={showStudy}>
-            {studyButtonText()}
-          </button>
+          <MenuButton handleClick={showStudy} makeText={studyButtonText} />
         )}
         {!studyIsVisible && !battleIsVisible && (
-          <button className={styles.battle__button} onClick={showMereng}>
-            {merengButtonText()}
-          </button>
+          <MenuButton handleClick={showMereng} makeText={merengButtonText} />
         )}
+
         {battleIsVisible && !merengIsVisible && !studyIsVisible && (
           <>
             <h3 className={styles.battle__storyText}>{text}</h3>
             {!endGame && (
               <>
-                <button
-                  ref={attack1Button}
-                  className={styles.battle__button}
-                  onClick={() => {
-                    makeAttack(attack1);
-                  }}
-                >
-                  {attack1.name}
-                </button>
-                <button
-                  ref={attack2Button}
-                  className={styles.battle__button}
-                  onClick={() => {
-                    makeAttack(attack2);
-                  }}
-                >
-                  {attack2.name}
-                </button>
-                <button
-                  ref={attack3Button}
-                  className={styles.battle__button}
-                  onClick={() => {
-                    makeAttack(attack3);
-                  }}
-                >
-                  {attack3.name}
-                </button>
-                {!superAttackCounter && (
-                  <button
-                    ref={superAttack1Button}
-                    className={`${styles.battle__button} ${styles.battle__button1}`}
-                    onClick={() => {
-                      makeAttack(superAttack1);
-                    }}
-                  >
-                    {superAttack1.name}
-                  </button>
+                <BattleButton
+                  handleClick={makeAttack}
+                  text={attack1.name}
+                  isSimple={true}
+                  item={attack1}
+                />
+                <BattleButton
+                  handleClick={makeAttack}
+                  text={attack2.name}
+                  isSimple={true}
+                  item={attack2}
+                />
+                <BattleButton
+                  handleClick={makeAttack}
+                  text={attack3.name}
+                  isSimple={true}
+                  item={attack3}
+                />
+                {!superAttackCounter ? (
+                  <BattleButton
+                    handleClick={makeAttack}
+                    text={superAttack.name}
+                    isSimple={false}
+                    item={superAttack}
+                  />
+                ) : (
+                  <div className={styles.battle__emptyBlock}></div>
                 )}
               </>
             )}
             {showEnd && (
               <div className={styles.container}>
-                <button className={styles.btn} onClick={startAgain}>
-                  Сразиться еще раз!
-                </button>
+                <CheckButton
+                  handleClick={startAgain}
+                  isForBattle={true}
+                  text='Сразиться еще раз!'
+                />
                 {isWinning && (
                   <img
                     src={win}

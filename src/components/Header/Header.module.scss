@@ -1,10 +1,10 @@
-@import url(../../vendor/Railroad/stylesheet.css);
+@import '../../styles/variables';
 
 .header {
   display: flex;
   flex-direction: row;
-  background: rgb(148 148 143);
-  color: white;
+  background: $color-background-header;
+  color: $color-font-white;
   align-items: center;
   height: 110px;
   justify-content: center;

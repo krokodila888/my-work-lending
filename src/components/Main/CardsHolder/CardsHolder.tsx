@@ -6,6 +6,7 @@ import { addCard, removeCard, editCard } from '../../../services/actions/cards';
 import { useAppDispatch } from '../../../services/hooks';
 import { useAppSelector } from '../../../services/hooks';
 import { TCard } from '../../../utils/types';
+import CheckButton from '../../ux/Buttons/CheckButton';
 
 const CardsHolder: FC = () => {
   const { cards } = useAppSelector((state) => state.cardsReducer);
@@ -99,16 +100,20 @@ const CardsHolder: FC = () => {
   };
 
   function handleSubmit() {
-    dispatch(addCard(form));
-    setAddNewCard(false);
-    setValue({ text: '', translation: '' });
+    if (form.text !== '' && form.translation !== '') {
+      dispatch(addCard(form));
+      setAddNewCard(false);
+      setValue({ text: '', translation: '' });
+    }
   }
 
   const handleEditSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    dispatch(editCard(editingForm));
-    setEditItem(false);
-    setEditedMeaning({ text: '', translation: '', ID: 0 });
+    if (editingForm.text !== '' && editingForm.translation !== '') {
+      dispatch(editCard(editingForm));
+      setEditItem(false);
+      setEditedMeaning({ text: '', translation: '', ID: 0 });
+    }
   };
 
   function handleClose() {
@@ -208,19 +213,25 @@ const CardsHolder: FC = () => {
       {!addNewCard && (
         <div className={styles.cardsHolder__buttonBlock}>
           {!repeatMode && (
-            <button className={styles.btn} onClick={showAddForm}>
-              Добавить карточку
-            </button>
+            <CheckButton
+              handleClick={showAddForm}
+              isForBattle={false}
+              text='Добавить карточку'
+            />
           )}
           {cards.length !== 0 && !repeatMode && (
-            <button className={styles.btn} onClick={startRepeating}>
-              Повторить слова
-            </button>
+            <CheckButton
+              handleClick={startRepeating}
+              isForBattle={false}
+              text='Повторить слова'
+            />
           )}
           {cards.length !== 0 && !repeatMode && (
-            <button className={styles.btn} onClick={showAllCards}>
-              Посмотреть на карточки
-            </button>
+            <CheckButton
+              handleClick={showAllCards}
+              isForBattle={false}
+              text='Посмотреть на карточки'
+            />
           )}
         </div>
       )}
@@ -245,15 +256,16 @@ const CardsHolder: FC = () => {
             className={styles.cardsHolder__input}
           />
           <div className={styles.cardsHolder__buttonBlock}>
-            <button className={styles.btn} type='submit' onClick={handleSubmit}>
-              Сохранить
-            </button>
-            <button
-              className={styles.cardsHolder__button}
-              onClick={handleClose}
-            >
-              Закрыть
-            </button>
+            <CheckButton
+              handleClick={handleSubmit}
+              isForBattle={false}
+              text='Сохранить'
+            />
+            <CheckButton
+              handleClick={handleClose}
+              isForBattle={false}
+              text='Закрыть'
+            />
           </div>
         </form>
       )}
@@ -273,21 +285,21 @@ const CardsHolder: FC = () => {
             autoComplete='off'
           />
           <div className={styles.cardsHolder__buttonBlock}>
-            <button
-              className={styles.cardsHolder__button}
-              onClick={showTranslation}
-            >
-              Показать слово
-            </button>
-            <button
-              className={styles.cardsHolder__button}
-              onClick={stopRepeating}
-            >
-              Закончить
-            </button>
-            <button className={styles.cardsHolder__button} onClick={nextWord1}>
-              Следующая
-            </button>
+            <CheckButton
+              handleClick={showTranslation}
+              isForBattle={false}
+              text='Показать слово'
+            />
+            <CheckButton
+              handleClick={stopRepeating}
+              isForBattle={false}
+              text='Закончить'
+            />
+            <CheckButton
+              handleClick={nextWord1}
+              isForBattle={false}
+              text='Следующая'
+            />
           </div>
         </div>
       )}
@@ -341,22 +353,20 @@ const CardsHolder: FC = () => {
             <button className={styles.btn} type='submit'>
               Вот так лучше
             </button>
-            <button
-              className={styles.cardsHolder__button}
-              onClick={closeEditCard}
-            >
-              Оставим как было
-            </button>
+            <CheckButton
+              handleClick={closeEditCard}
+              isForBattle={false}
+              text='Оставим как было'
+            />
           </div>
         </form>
       )}
       {showCards && cards.length !== 0 && (
-        <button
-          className={`${styles.cardsHolder__button} ${styles.cardsHolder__button1}`}
-          onClick={hideAllCards}
-        >
-          Скрыть
-        </button>
+        <CheckButton
+          handleClick={hideAllCards}
+          isForBattle={false}
+          text='Скрыть'
+        />
       )}
     </section>
   );

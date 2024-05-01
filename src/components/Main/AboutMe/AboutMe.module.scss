@@ -113,6 +113,10 @@
     flex-direction: column;
     max-width: 650px;
     justify-content: space-between;
+
+    & .aboutMe__text:first-of-type {
+      padding-top: 20px;
+    }
   }
 
   &__textBlock {

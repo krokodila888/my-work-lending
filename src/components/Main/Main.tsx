@@ -40,7 +40,7 @@ const Main: FC = () => {
             Если захочется посмотреть в деталях - вот{' '}
             <a
               className={styles.main__link}
-              href='https://creating-things.online/'
+              href='https://creating-things.space/'
               target='_blank'
               rel='noreferrer'
             >

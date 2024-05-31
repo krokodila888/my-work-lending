@@ -2,15 +2,15 @@ import { FC, useEffect, useState, useRef } from 'react';
 import styles from './CardsHolder.module.scss';
 import pencil from '../../../images/pencil.png';
 import gurb from '../../../images/gurb.png';
-import { addCard, removeCard, editCard } from '../../../services/actions/cards';
-import { useAppDispatch } from '../../../services/hooks';
-import { useAppSelector } from '../../../services/hooks';
+import { RootState } from '../../../services/store';
 import { TCard } from '../../../utils/types';
 import CheckButton from '../../ux/Buttons/CheckButton';
+import { addCard, removeCard, editCard } from '../../../services/cardSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 const CardsHolder: FC = () => {
-  const { cards } = useAppSelector((state) => state.cardsReducer);
-  const dispatch = useAppDispatch();
+  const cards = useSelector((state: RootState) => state.cards);
+  const dispatch = useDispatch();
   const [repeatMode, setRepeatMode] = useState(false);
   const [addNewCard, setAddNewCard] = useState(false);
   const [showWord, setShowWord] = useState(false);
@@ -27,12 +27,7 @@ const CardsHolder: FC = () => {
   });
   const [repeatedWords, setRepeatedWords] = useState<TCard[]>([]);
   const [wordsToRepeat, setWordsToRepeat] = useState<TCard[]>([]);
-  //const repeatingInput = document.getElementById('cardsHolderRepeatingInput');
   const cardsHolderRepeatingInput = useRef<HTMLInputElement | null>(null);
-
-  /*useEffect(() => {
-    if (cards.length !== 0) setWordsToRepeat(cards);
-  }, []);*/
 
   useEffect(() => {
     if (cards.length !== 0) setWordsToRepeat(cards);

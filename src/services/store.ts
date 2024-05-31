@@ -1,9 +1,6 @@
 import { compose } from 'redux';
 import { configureStore } from '@reduxjs/toolkit';
-import { TCardActions } from './actions/cards';
-import { rootReducer } from './reducers/rootReducer';
-
-export type TAppActions = TCardActions;
+import cardsReducer from './cardSlice';
 
 declare global {
   interface Window {
@@ -12,5 +9,9 @@ declare global {
 }
 
 export const store = configureStore({
-  reducer: rootReducer,
+  reducer: {
+    cards: cardsReducer,
+  },
 });
+
+export type RootState = ReturnType<typeof store.getState>;
